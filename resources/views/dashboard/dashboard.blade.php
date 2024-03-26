@@ -66,11 +66,13 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-   
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset("assets/vendor/jquery/jquery.min.js") }}"></script>
-    <script src="{{ asset("assets/vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+    <script src="{{ asset('plugins/jquery/jquery-3.7.1.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap-5.2.3-dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>

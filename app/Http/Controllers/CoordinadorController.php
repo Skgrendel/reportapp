@@ -74,9 +74,6 @@ class CoordinadorController extends Controller
     public function update(Request $request, string $id)
     {
         $estado = $request->estado;
-
-
-
         $reporte = reportes::find($id);
         if ($estado == 6) {
             $reporte->estado = $request->estado;
