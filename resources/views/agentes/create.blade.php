@@ -3,7 +3,7 @@
         <x-breadcrumb :role="'Coordinador'" :reportTitle="'Creacion de Reportes'" />
         <x-back-button route="{{ route('reportes.index') }}" />
     </x-slot>
-    
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -109,10 +109,10 @@
                                 @endforeach
                             </select>
                             <x-input-error for="comercio" />
-                            <div id="div-comercio-nuevo" style="display: none;" class=" flex">
+                            {{-- <div id="div-comercio-nuevo" style="display: none;" class=" flex">
                                 <input type="text" name="nuevo_comercio" id="nueva_opcion"
                                     class="w-1/2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
-                            </div>
+                            </div> --}}
                         </div>
                         <div class=" mb-3">
                             <x-label for='nombre_comercio' value='Nombre Del Comercio' class="mb-2" />
@@ -380,7 +380,7 @@
             }
         </script>
 
-        <script>
+        {{-- <script>
             document.getElementById("comercio").addEventListener("change", function() {
                 var divComercioNuevo = document.getElementById("div-comercio-nuevo");
                 if (this.value == "56") {
@@ -389,7 +389,7 @@
                     divComercioNuevo.style.display = "none";
                 }
             });
-        </script>
+        </script> --}}
 
         <script>
             $(document).ready(function() {
