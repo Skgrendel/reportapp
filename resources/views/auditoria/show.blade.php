@@ -23,7 +23,8 @@
                                                     <strong>{{ $reporte->contrato }} @if ($validate === null)
                                                             <span class="text-danger">No REGISTRA en base de datos</span>
                                                         @endif
-                                                    </strong> </span>
+                                                    </strong>
+                                                </span>
                                             </div>
                                         </div>
                                     </h4>
@@ -43,7 +44,7 @@
                                     </li>
                                     <li>
                                         <span class="text-card text-sm"> Tipo de Comercio:
-                                            {{ $reporte->ComercioReporte && (is_null($reporte->ComercioReporte->nombre) || $reporte->ComercioReporte->nombre == 0) ? 'por revisar' : ($reporte->ComercioReporte->nombre ?? 'por revisar') }}
+                                            {{ $reporte->ComercioReporte && (is_null($reporte->ComercioReporte->nombre) || $reporte->ComercioReporte->nombre == 0) ? 'por revisar' : $reporte->ComercioReporte->nombre ?? 'por revisar' }}
                                         </span>
                                         @if ($reporte->nuevo_comercio)
                                             <span class="text-card text-sm"> Comercio: {{ $reporte->nuevo_comercio }}</span>
@@ -150,7 +151,7 @@
             </div>
         </div>
     </div>
-    @if ($reporte->revisado === 0 || $reporte->revisado === null)
+    @if ($reporte->revisado === 0 || $reporte->revisado === null || Auth::user()->hasRole('Administrador'))
         <div class="widget-content widget-content-area mt-2 ">
             <div class="row">
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
