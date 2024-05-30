@@ -151,7 +151,7 @@
             </div>
         </div>
     </div>
-    @if ($reporte->revisado === 0 || $reporte->revisado === null || Auth::user()->hasRole('Administrador'))
+    @if ($reporte->revisado === 0 || $reporte->revisado === null ||  Auth::user()->hasRole('Administrador'))
         <div class="widget-content widget-content-area mt-2 ">
             <div class="row">
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
@@ -333,7 +333,7 @@
                 </div>
             </div>
         </div>
-        
+
     @endif
     <div class="widget-content widget-content-area mt-2 ">
         <div class="row">
