@@ -43,7 +43,8 @@
                                     </li>
                                     <li>
                                         <span class="text-card text-sm"> Tipo de Comercio:
-                                            {{ $reporte->ComercioReporte->nombre }}</span>
+                                            {{ $reporte->ComercioReporte && (is_null($reporte->ComercioReporte->nombre) || $reporte->ComercioReporte->nombre == 0) ? 'por revisar' : ($reporte->ComercioReporte->nombre ?? 'por revisar') }}
+                                        </span>
                                         @if ($reporte->nuevo_comercio)
                                             <span class="text-card text-sm"> Comercio: {{ $reporte->nuevo_comercio }}</span>
                                         @endif
@@ -79,13 +80,15 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="revisado" value="1">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="revisado"
+                                        value="1">
                                     <label class="form-check-label" for="inlineCheckbox1">Revisado</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="confirmado_anomalia" value="1">
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                        name="confirmado_anomalia" value="1">
                                     <label class="form-check-label" for="inlineCheckbox2">Anomalia Confirmada</label>
-                                  </div>
+                                </div>
                                 <div class=" d-flex justify-content-between ">
                                     <a href="{{ route('auditorias.edit', $reporte->id) }}"
                                         class="btn text-success bs-tooltip rounded  me-4" data-bs-placement="top"
