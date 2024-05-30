@@ -333,6 +333,7 @@
                 </div>
             </div>
         </div>
+        
     @endif
     <div class="widget-content widget-content-area mt-2 ">
         <div class="row">
