@@ -37,7 +37,7 @@ class ReportesverificacionController extends Controller
      */
     public function create()
     {
-       return view('verificacion.verificaciontable');
+        return view('verificacion.verificaciontable');
     }
 
     /**
@@ -133,10 +133,10 @@ class ReportesverificacionController extends Controller
     {
         $reporte = reportesverificacion::find($id);
         $contrato = $reporte->contrato;
-        $validate = direcciones::where('contrato',$contrato)->first();
+        $validate = direcciones::where('contrato', $contrato)->first();
         $anomaliasIds = json_decode($reporte->anomalia);
         $anomalias = vs_anomalias::whereIn('id', $anomaliasIds)->get();
-        return view('verificacion.show', compact('reporte', 'anomalias','validate'));
+        return view('verificacion.show', compact('reporte', 'anomalias', 'validate'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -190,6 +190,14 @@ class ReportesverificacionController extends Controller
 
         // Descargar el documento
         return response()->download($outputFile)->deleteFileAfterSend();
+    }
+    private function ImgExist($img, $templateProcessor, $var)
+    {
+        if (file_exists(public_path('imgverificacion/' . $img)) and $img != null) {
+            return $templateProcessor->setImageValue($var, array('path' => public_path('imgverificacion/' . $img), 'width' => 400, 'height' => 400, 'ratio' => true));
+        } else {
+            return $templateProcessor->setValue($var, 'Sin Registro Fotografico');
+        }
     }
     /**
      * Update the specified resource in storage.
