@@ -18,7 +18,7 @@ class ReportesverificacionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('can:agente');
+        
     }
     /**
      * Display a listing of the resource.
