@@ -55,6 +55,7 @@
                                     @foreach ($anomalias as $anomalia)
                                         <li>
                                             <span class="text-card text-sm">{{ $anomalia->nombre }}</span>
+                                            <P>Prueba</P>
                                         </li>
                                     @endforeach
                                     <li>
