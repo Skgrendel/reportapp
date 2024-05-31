@@ -35,7 +35,7 @@ class ReportesverificacionController extends Controller
      */
     public function create()
     {
-        //
+       return view('verificacion.verificaciontable');
     }
 
     /**
@@ -52,7 +52,7 @@ class ReportesverificacionController extends Controller
             $contrato = direcciones::where('contrato', $request->input('contrato'))->first();
             if (!$contrato) {
                 notify()->error('el "Contrato" No esta en la Lista de Contratos');
-                return redirect()->route('reportes.create');
+                return redirect()->route('verificacion.index');
             }
         }
 
@@ -63,13 +63,13 @@ class ReportesverificacionController extends Controller
                 $nombreCreador = $contrato->personal->nombres . ' ' . $contrato->personal->apellidos;; // Nombre del creador
                 $mensaje = "El contrato ya fue registrado. Fecha de Registro: $fechaCreacion, Registrado por: $nombreCreador";
                 notify()->error($mensaje);
-                return redirect()->route('reportes.create');
+                return redirect()->route('verificacion.index');
             }
         }
 
         if ($latitud == null || $longitud == null) {
             notify()->error('No se pudo obtener la direccion , Active su GPS y vuelva a intentarlo');
-            return redirect()->route('reportes.create');
+            return redirect()->route('verificacion.index');
         } else {
             $response = Http::withoutVerifying()->get("https://revgeocode.search.hereapi.com/v1/revgeocode?apikey=auuOOORgqWd_T4DFf0onY2JlvMDhz4tP0G0o7fRYDRU&at=$latitud,$longitud&lang=es-ES");
             $data = $response->json();
@@ -84,6 +84,7 @@ class ReportesverificacionController extends Controller
         $reportes['latitud'] = $latitud;
         $reportes['longitud'] = $longitud;
         $reportes['direccion'] = $direccion;
+        $reportes['estado'] = 5;
 
         foreach (range(1, 6) as $i) {
             if ($imagen = $request->file('foto' . $i)) {
@@ -128,7 +129,12 @@ class ReportesverificacionController extends Controller
      */
     public function show($id)
     {
-        //
+        $reporte = reportesverificacion::find($id);
+        $contrato = $reporte->contrato;
+        $validate = direcciones::where('contrato',$contrato)->first();
+        $anomaliasIds = json_decode($reporte->anomalia);
+        $anomalias = vs_anomalias::whereIn('id', $anomaliasIds)->get();
+        return view('verificacion.show', compact('reporte', 'anomalias','validate'));
     }
     /**
      * Show the form for editing the specified resource.

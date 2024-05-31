@@ -4,6 +4,7 @@
 /public/hot
 /public/video
 /public/imagen
+/public/imgverificacion
 /public/storage
 /storage/*.key
 /vendor

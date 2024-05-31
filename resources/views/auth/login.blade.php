@@ -11,7 +11,7 @@
     <!-- Favicon -->
     <link rel="icon" href="{{asset('/assets/img/brand/favicon.png')}}" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Q data Analtytics</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 
 <body class="text-gray-800 antialiased">
