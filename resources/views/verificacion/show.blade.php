@@ -72,6 +72,16 @@
                             <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
+                        <a href="{{ route('verificacion.edit', $reporte->id) }}"
+                            class="btn text-success bs-tooltip rounded  me-4" data-bs-placement="top"
+                            title="Descargar Informe">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"
+                                id="Download--Streamline-Blocks---Free" height="16" width="16">
+                                <desc>Download Streamline Icon: https://streamlinehq.com</desc>
+                                <path fill="#0fcceb" d="M11 0H5v4H1l7 7 7 -7h-4V0Z" stroke-width="1"></path>
+                                <path fill="#0fcceb" d="M16 13v3H0v-3h16Z" stroke-width="1"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
