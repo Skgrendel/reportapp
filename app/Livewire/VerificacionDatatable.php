@@ -8,11 +8,11 @@ use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\vs_anomalias;
-use App\Models\Reportesverificacion;
+use App\Models\reportesverificacion;
 
 class VerificacionDatatable extends DataTableComponent
 {
-    protected $model = Reportesverificacion::class;
+    protected $model = reportesverificacion::class;
     public ?int $searchFilterDebounce = 500;
     public string $defaultSortDirection = 'desc';
     public ?string $defaultSortColumn = 'created_at';
@@ -111,7 +111,7 @@ class VerificacionDatatable extends DataTableComponent
     }
     public function builder(): Builder
     {
-        return Reportesverificacion::query()->whereIn('reportesverificacions.estado', [5]);
+        return reportesverificacion::query()->whereIn('reportesverificacions.estado', [5]);
     }
 
 
