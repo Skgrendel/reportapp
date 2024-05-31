@@ -12,15 +12,11 @@
                         <x-nav-link href="{{ route('reportes.index') }}" :active="request()->routeIs(['reportes.index', 'reportes.create'])">
                             {{ __('Agentes') }}
                         </x-nav-link>
+                        <x-nav-link href="{{ route('verificacion.index') }}" :active="request()->routeIs(['verificacion.index'])">
+                            {{ __('Verificaciones') }}
+                        </x-nav-link>
                     @endcan
                 </div>
-                {{-- @can('agente')
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link href="{{ route('busqueda') }}" :active="request()->routeIs(['busqueda'])">
-                            {{ __('Rutas') }}
-                        </x-nav-link>
-                    </div>
-                @endcan --}}
                 @can('coordinador')
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link href="{{ route('coordinador.index') }}" :active="request()->routeIs([
@@ -170,14 +166,12 @@
                     {{ __('Agentes') }}
                 </x-responsive-nav-link>
             </div>
-        @endcan
-        {{-- @can('agente')
             <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link href="{{ route('busqueda') }}" :active="request()->routeIs(['busqueda'])">
-                    {{ __('Rutas') }}
+                <x-responsive-nav-link href="{{ route('verificacion.index') }}" :active="request()->routeIs('verificacion.index')">
+                    {{ __('Verificaciones') }}
                 </x-responsive-nav-link>
             </div>
-        @endcan --}}
+        @endcan
         @can('coordinador')
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link href="{{ route('coordinador.index') }}" :active="request()->routeIs('coordinador.index')">

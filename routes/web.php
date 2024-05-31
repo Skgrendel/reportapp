@@ -9,6 +9,8 @@ use App\Http\Controllers\DireccionesController;
 use App\Http\Controllers\FuntionController;
 use App\Http\Controllers\GraficosController;
 use App\Http\Controllers\InformesController;
+use App\Http\Controllers\ReportesverificacionController;
+use App\Models\reportesverificacion;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/funtion/busqueda/{id}', [FuntionController::class,'BuscarContrato'])->name('Contrato');
+Route::get('/funtion/busqueda/{id}', [FuntionController::class, 'BuscarContrato'])->name('Contrato');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::middleware('check_user_status')->group(function () {
@@ -35,7 +37,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/admin', adminController::class)->name('admin');
         Route::post('/addcomercio', [ReportesController::class, 'addcomercio'])->name('addcomercio');
         Route::get('/busqueda', [DireccionesController::class, 'index'])->name('busqueda');
-       Route::get('/informes', [InformesController::class, 'InfoGeneral'])->name('informes');
+        Route::get('/informes', [InformesController::class, 'InfoGeneral'])->name('informes');
         Route::resource('/auditorias', AuditoriaController::class)->names('auditorias');
+        Route::resource('/verificacion',ReportesverificacionController::class)->names('verificacion');
     });
 });
