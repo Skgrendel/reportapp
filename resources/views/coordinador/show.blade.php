@@ -55,12 +55,15 @@
                                     @foreach ($anomalias as $anomalia)
                                         <li>
                                             <span class="text-card text-sm">{{ $anomalia->nombre }}</span>
-                                            
+
                                         </li>
                                     @endforeach
                                     <li>
                                         <span class="text-card text-sm">Medidor Encontrado:
                                             {{ $reporte->medidor_anomalia }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-card text-sm">Nombre del Comercio: {{$reporte->nombre_comercio}}</span>
                                     </li>
                                 </ul>
                             </div>
