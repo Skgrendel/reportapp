@@ -19,7 +19,7 @@ class ReportExport implements FromCollection,WithHeadings
 
     public function collection()
     {
-        return Reportes::with(['ComercioReporte', 'AnomaliaReporte','imposibilidadReporte','EstadoReporte','personal'])
+        return reportes::with(['ComercioReporte', 'AnomaliaReporte','imposibilidadReporte','EstadoReporte','personal'])
         ->whereIn('id', $this->reporteIds)
         ->get()
         ->map(function ($reporte) {
@@ -36,7 +36,6 @@ class ReportExport implements FromCollection,WithHeadings
                 $reporte->medidor,
                 $reporte->lectura,
                 $reporte->direccion,
-                // Une los nombres de las anomalías con comas
                 implode(', ', $anomaliaNombres),
                 $reporte->imposibilidadReporte->nombre,
                 $reporte->ComercioReporte->nombre,
