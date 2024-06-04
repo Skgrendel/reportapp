@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Livewire;
-use App\Exports\ReportExport;
+use App\Exports\ReportVerificacion;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
@@ -38,7 +38,7 @@ class VerificacionDatatable extends DataTableComponent
 
         $date = now()->format('Y-m-d H:i:s');
 
-        return Excel::download(new ReportExport($users), $date . '.xlsx');
+        return Excel::download(new ReportVerificacion($users), $date . '.xlsx');
     }
 
     public function filters(): array
