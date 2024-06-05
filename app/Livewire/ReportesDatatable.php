@@ -23,13 +23,17 @@ class ReportesDatatable extends DataTableComponent
     {
         $this->setPrimaryKey('id');
         $this->setColumnSelectStatus(false);
+        $this->setConfigurableAreas([
+            'toolbar-left-start' => 'coordinador.export',
+        ]);
     }
 
     public function bulkActions(): array
     {
         return [
-            'export' => 'Exportar a Excel',
+            'exporta' => 'Exportar a Excel',
         ];
+
     }
 
     public function export()
@@ -42,6 +46,7 @@ class ReportesDatatable extends DataTableComponent
 
         return Excel::download(new ReportExport($users), $date . '.xlsx');
     }
+
 
     public function filters(): array
     {

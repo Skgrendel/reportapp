@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ReportExportall;
 use App\Models\direcciones;
 use App\Models\reportes;
 use App\Models\vs_anomalias;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpWord\TemplateProcessor;
 use PhpOffice\PhpWord\IOFactory;
 
@@ -233,6 +235,13 @@ class CoordinadorController extends Controller
             $reporte->update();
             return redirect()->route('coordinador.index')->with('success', 'Reporte rechazado con éxito');
         }
+    }
+
+    public function exportAllReports()
+    {
+        $reporteIds = reportes::pluck('id')->toArray(); // Get all report IDs
+
+        return Excel::download(new ReportExportall($reporteIds), 'reportes.xlsx');
     }
 
     /**
