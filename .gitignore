@@ -4,6 +4,7 @@
 /public/hot
 /public/video
 /public/imagen
+/public/reportesmasivo
 /public/imgverificacion
 /public/storage
 /storage/*.key
