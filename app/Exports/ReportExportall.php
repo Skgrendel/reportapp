@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\Models\direcciones;
 use App\Models\reportes;
 use App\Models\vs_anomalias;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -25,21 +26,20 @@ class ReportExportall implements FromCollection,WithHeadings
         ->map(function ($reporte) {
             // Decodifica el JSON a un array de PHP
             $anomaliaIds = json_decode($reporte->anomalia);
-
+            
+            $ciclos = direcciones::where('contrato', $reporte->contrato)->value('ciclo');
             // Busca los nombres de las anomalías correspondientes a los IDs
             $anomaliaNombres = vs_anomalias::whereIn('id', $anomaliaIds)->pluck('nombre')->toArray();
 
             return [
-                $reporte->personal->nombres,
-                $reporte->personal->apellidos,
                 $reporte->contrato,
                 $reporte->medidor,
-                $reporte->lectura,
                 $reporte->direccion,
                 implode(', ', $anomaliaNombres),
                 $reporte->imposibilidadReporte->nombre,
                 $reporte->ComercioReporte->nombre,
                 $reporte->EstadoReporte->nombre,
+                $ciclos,
                 $reporte->created_at->format('Y-m-d'),
                 $reporte->created_at->format('H:i:s '),
 
@@ -50,16 +50,14 @@ class ReportExportall implements FromCollection,WithHeadings
     public function headings(): array
     {
         return [
-            'Nombres',
-            'Apellidos',
             'Contrato',
             'Medidor',
-            'Lectura',
             'Dirección',
             'Anomalía',
             'Imposibilidad',
             'Comercio',
             'Estado',
+            'ciclo',
             'Fecha de Creación',
             'Hora de Creación',
         ];

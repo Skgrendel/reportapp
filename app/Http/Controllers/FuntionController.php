@@ -7,6 +7,7 @@ use App\Exports\ReportVerificacion;
 use App\Models\direcciones;
 use App\Models\reportes;
 use App\Models\reportesverificacion;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -27,14 +28,14 @@ class FuntionController extends Controller
     public function exportReports()
     {
         $reporteIds = reportes::pluck('id')->toArray(); // Get all report IDs
-
-        return Excel::download(new ReportExportall($reporteIds), 'reportes.xlsx');
+        $filename =now()->format('Y-m-d H:i:s') . '.xlsx';
+        return Excel::download(new ReportExportall($reporteIds), $filename);
     }
 
     public function exportReportsRevisados()
     {
         $reporteIds = reportesverificacion::pluck('id')->toArray(); // Get all report IDs
-
-        return Excel::download(new ReportVerificacion($reporteIds), 'reportes.xlsx');
+        $filename = now()->format('Y-m-d H:i:s') . '.xlsx';
+        return Excel::download(new ReportVerificacion($reporteIds),$filename);
     }
 }
