@@ -237,12 +237,7 @@ class CoordinadorController extends Controller
         }
     }
 
-    public function exportAllReports()
-    {
-        $reporteIds = reportes::pluck('id')->toArray(); // Get all report IDs
-
-        return Excel::download(new ReportExportall($reporteIds), 'reportes.xlsx');
-    }
+    
 
     /**
      * Remove the specified resource from storage.

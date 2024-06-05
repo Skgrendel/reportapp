@@ -21,6 +21,9 @@ class VerificacionDatatable extends DataTableComponent
     {
         $this->setPrimaryKey('id');
         $this->setColumnSelectStatus(false);
+        $this->setConfigurableAreas([
+            'toolbar-left-start' => 'auditoria.export',
+        ]);
     }
 
     public function bulkActions(): array
