@@ -215,7 +215,7 @@ class ReportesverificacionController extends Controller
         }
         foreach (range(1, 6) as $i) {
             if ($imagen = $request->file('foto' . $i)) {
-                $path = 'imagen/';
+                $path = 'imgverificacion/';
                 $foto = rand(1000, 9999) . "_" . date('YmdHis') . "." . $imagen->getClientOriginalExtension();
                 $imagen->move($path, $foto);
                 $report['foto' . $i] = $foto;
