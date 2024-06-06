@@ -119,9 +119,9 @@
             </div>
         </div>
     </div>
-    {{-- <div class="widget-content widget-content-area mt-2 ">
+    <div class="widget-content widget-content-area mt-2 ">
         <div class="row">
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+            {{-- <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
                 <div class="card style-4" style="width: 100%; height: 100%;">
                     <div class="card-body pt-3">
                         <div class="m-o-dropdown-list">
@@ -177,7 +177,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
                 <div class="card style-4" style="width: 100%; height: 100%;">
                     <div class="card-body pt-3">
@@ -195,7 +195,7 @@
                             <hr class="my-2">
                         </div>
                         <div class="row">
-                            <form action="{{ route('coordinador.store') }}" method="POST" enctype="multipart/form-data"
+                            <form action="{{ route('verificacion.store') }}" method="POST" enctype="multipart/form-data"
                                 id="evidencias">
                                 @csrf
                                 <input type="text" name="id" value="{{ $reporte->id }}" hidden>
@@ -260,7 +260,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <div class="widget-content widget-content-area mt-2 ">
         <div class="row">
             @foreach (range(1, 6) as $i)

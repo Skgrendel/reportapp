@@ -18,7 +18,7 @@ class ReportesverificacionController extends Controller
 {
     public function __construct()
     {
-        
+
     }
     /**
      * Display a listing of the resource.
@@ -50,6 +50,13 @@ class ReportesverificacionController extends Controller
         $longitud = $request->input('longitud');
         $fontSize = 50;
 
+        if ($video = $request->file('video')) {
+            $path = 'video/';
+            $videoname = rand(1000, 9999) . "_" . date('YmdHis') . "." . $video->getClientOriginalExtension();
+            $video->move($path, $videoname);
+            $reportes['video'] = $videoname;
+        }
+        
         if ($request->input('contrato')) {
             $contrato = direcciones::where('contrato', $request->input('contrato'))->first();
             if (!$contrato) {
