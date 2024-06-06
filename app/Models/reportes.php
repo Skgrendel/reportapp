@@ -70,7 +70,7 @@ class reportes extends Model
 
     public function personal()
     {
-        return $this->hasOne(personals::class,'id','personal_id');
+        return $this->hasOne(personals::class, 'id', 'personal_id');
     }
 
 
@@ -89,11 +89,13 @@ class reportes extends Model
         return $this->hasOne(vs_anomalias::class, 'id', 'anomalia');
     }
 
-
+    public function ciclos()
+    {
+        return $this->hasOne(direcciones::class, 'contrato', 'contrato');
+    }
+    
     public function ComercioReporte()
     {
         return $this->hasOne(vs_comercios::class, 'id', 'tipo_comercio');
     }
-
-
 }

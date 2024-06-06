@@ -33,7 +33,6 @@ class ReportesDatatable extends DataTableComponent
         return [
             'exporta' => 'Exportar a Excel',
         ];
-
     }
 
     public function export()
@@ -60,6 +59,19 @@ class ReportesDatatable extends DataTableComponent
                 ->filter(function (Builder $builder, $value) {
                     if ($value === '5') {
                         $builder->where('reportes.estado', '5');
+                    } elseif ($value === '7') {
+                        $builder->where('reportes.estado', '7');
+                    }
+                }),
+            SelectFilter::make('Ciclos')
+                ->options([
+                    '' => 'All',
+                    '1' => 'Ciclo 1001',
+                    '7' => 'Rechazados',
+                ])
+                ->filter(function (Builder $builder, $value) {
+                    if ($value === '1') {
+                        $builder->where('ciclos.ciclo', '1001');
                     } elseif ($value === '7') {
                         $builder->where('reportes.estado', '7');
                     }
@@ -118,7 +130,8 @@ class ReportesDatatable extends DataTableComponent
     }
     public function builder(): Builder
     {
-        return reportes::query()->whereIn('reportes.estado', [5,7]);
+        return reportes::query()->whereIn('reportes.estado', [5, 7])
+            ->with(['personal', 'ComercioReporte', 'ciclos']);
     }
 
 
@@ -149,6 +162,8 @@ class ReportesDatatable extends DataTableComponent
                 ->collapseAlways(),
             Column::make("Comercio", "ComercioReporte.nombre")
                 ->collapseAlways(),
+            Column::make('Ciclos', 'ciclos.ciclo')
+                ->searchable(),
             Column::make("Estado", "estado")
                 ->format(
                     fn ($value, $row, Column $column) => match ($value) {
