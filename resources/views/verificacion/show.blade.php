@@ -195,8 +195,9 @@
                             <hr class="my-2">
                         </div>
                         <div class="row">
-                            <form action="{{ route('verificacion.store') }}" method="POST" enctype="multipart/form-data"
+                            <form action="{{ route('verificacion.update', $reporte->id) }}" method="POST" enctype="multipart/form-data"
                                 id="evidencias">
+                                @method('PUT')
                                 @csrf
                                 <input type="text" name="id" value="{{ $reporte->id }}" hidden>
                                 <div class="row">
@@ -238,8 +239,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-12">
                                         <div class="input-group">
-                                            <input class="form-control" type="file" id="video" name="video"
-                                                accept="video/mp4">
+                                            <input class="form-control" type="file" id="video" name="video" accept="video/mp4">
                                             <span class="input-group-text" id="video">video</span>
                                         </div>
                                     </div>
@@ -303,38 +303,11 @@
     </script>
     <script>
         $(document).ready(function() {
-            $('#observacion').submit(function() {
-                $('#submitButtonObservacion').addClass('d-none');
-                $('#progressBarObservacion').removeClass('d-none');
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('#evidencias').submit(function(e) {
-                e.preventDefault();
+            $('#evidencias').submit(function() {
                 $('#submitButtonEvidencias').addClass('d-none');
                 $('#progressBarEvidencias').removeClass('d-none');
-
-                var formData = new FormData($('#evidencias')[0]);
-
-                $.ajax({
-                    url: "{{ route('coordinador.store') }}",
-                    type: 'post',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function(response) {
-                        $('#alert').removeClass('d-none');
-                        $('.alert-evidencia').text(response.success).show();
-                        $('#progressBarEvidencias').addClass('d-none');
-                        // $('#evidencias')[0].reset();
-                    }
-                });
             });
         });
     </script>
+
 @endsection

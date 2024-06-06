@@ -50,13 +50,6 @@ class ReportesverificacionController extends Controller
         $longitud = $request->input('longitud');
         $fontSize = 50;
 
-        if ($video = $request->file('video')) {
-            $path = 'video/';
-            $videoname = rand(1000, 9999) . "_" . date('YmdHis') . "." . $video->getClientOriginalExtension();
-            $video->move($path, $videoname);
-            $reportes['video'] = $videoname;
-        }
-        
         if ($request->input('contrato')) {
             $contrato = direcciones::where('contrato', $request->input('contrato'))->first();
             if (!$contrato) {
@@ -94,6 +87,7 @@ class ReportesverificacionController extends Controller
         $reportes['longitud'] = $longitud;
         $reportes['direccion'] = $direccion;
         $reportes['estado'] = 5;
+
 
         foreach (range(1, 6) as $i) {
             if ($imagen = $request->file('foto' . $i)) {
@@ -211,7 +205,18 @@ class ReportesverificacionController extends Controller
      */
     public function update(Request $request, $reporte)
     {
-        //
+        $reportes = reportesverificacion::find($reporte);
+
+
+        if ($video = $request->file('video')) {
+            $path = 'video/';
+            $videoname = rand(1000, 9999) . "_" . date('YmdHis') . "." . $video->getClientOriginalExtension();
+            $video->move($path, $videoname);
+            $report['video'] = $videoname;
+        }
+        $reportes->update($report);
+
+        return redirect()->route('verificacion.index')->with('success','Registro Actualizado Con Exito');
     }
     /**
      * Remove the specified resource from storage.
