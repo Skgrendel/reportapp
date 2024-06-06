@@ -235,14 +235,91 @@
                                         <button type="submit" id="submitButtonObservacion"
                                             class="btn btn-success">Guardar</button>
                                     </div>
-                                </form>
+
                             </div>
                         </div>
                     </div>
                 </div>
+                @if ( Auth::user()->hasRole('Administrador'))
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
                     <div class="card style-4" style="width: 100%; height: 100%;">
-                        @if ( Auth::user()->hasRole('Coordinador'))
+                        <div class="card-body pt-3">
+                            <div class="m-o-dropdown-list">
+                                <div class="media mt-0 mb-3">
+                                    <div class="badge--group me-3">
+                                        <div class="badge badge-success badge-dot"></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading mb-0">
+                                            <span class="text-card">Revision -- Auditoria</span>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <hr class="my-2">
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-3">
+                                    <span class="form-check-label">¿El medidor coincide?</span>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox1" name="medidor_coincide" value="1">
+                                        <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                    </div>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox1" name="medidor_coincide" value="0">
+                                        <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <span class="form-check-label">¿La lectura es correcta?</span>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox1" name="lectura_correcta" value="1">
+                                        <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                    </div>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox1" name="lectura_correcta" value="0">
+                                        <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <span class="form-check-label">¿Cuál es el tipo de predio?</span>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox1" name="predio" value="Comercial">
+                                        <label class="form-check-label" for="inlineCheckbox1">Comercial</label>
+                                    </div>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox1" name="predio" value="Residencial">
+                                        <label class="form-check-label" for="inlineCheckbox1">Residencial</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-4">
+                                    <span class="form-check-label">¿Coicide el tipo de comercio?</span>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox1" name="comercio_coincide" value="1">
+                                        <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                    </div>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox1" name="comercio_coincide" value="0">
+                                        <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <span class="form-check-label">Reporte Revisado</span>
+                                    <div class="form-check ">
+                                        <input class="form-check-input" type="radio" id="inlineCheckbox1" name="revisado" value="1">
+                                        <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+            </form>
+                @if ( Auth::user()->hasRole('Coordinador'))
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+                    <div class="card style-4" style="width: 100%; height: 100%;">
                         <div class="card-body pt-3">
                             <div class="m-o-dropdown-list">
                                 <div class="media mt-0 mb-3">
@@ -321,27 +398,9 @@
                                 </form>
                             </div>
                         </div>
-                        @endif
-                        <div class="card-body pt-3">
-                            <div class="m-o-dropdown-list">
-                                <div class="media mt-0 mb-3">
-                                    <div class="badge--group me-3">
-                                        <div class="badge badge-success badge-dot"></div>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading mb-0">
-                                            <span class="text-card">Revision -- Auditoria</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                                <hr class="my-2">
-                            </div>
-                            <div class="row">
-
-                            </div>
-                        </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
     @endif

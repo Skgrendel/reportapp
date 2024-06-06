@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\auditoria;
 use App\Models\direcciones;
 use App\Models\reportes;
 use App\Models\vs_anomalias;
@@ -27,7 +27,7 @@ class AuditoriaController extends Controller
      */
     public function create()
     {
-       return view('auditoria.revisado');
+        return view('auditoria.revisado');
     }
 
     /**
@@ -126,13 +126,23 @@ class AuditoriaController extends Controller
         $revisado = $request->revisado;
         $anomalia_confirmada = $request->confirmado_anomalia;
         $reporte = reportes::find($id);
+        $id = $reporte->id;
+
+        auditoria::create([
+            'reporte_id' => $id,
+            'medidor_coincide' => $request->input('medidor_coincide'),
+            'lectura_correcta' => $request->input('lectura_correcta'),
+            'predio' => $request->input('predio'),
+            'comercio_coincide' => $request->input('comercio_coincide'),
+        ]);
+
         if ($revisado == 1) {
-            $reporte->update(['revisado' => $request->revisado]);
+            $reporte->update(['revisado' => $request->input('revisado')]);
         }
         if ($anomalia_confirmada == 1) {
             $reporte->update(['confirmado_anomalia' => $request->confirmado_anomalia]);
         }
-        
+
         $anomalias = json_encode($request->anomalias);
         $reporte->contrato = $request->contrato;
         $reporte->medidor = $request->medidor;
