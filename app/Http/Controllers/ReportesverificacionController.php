@@ -216,7 +216,7 @@ class ReportesverificacionController extends Controller
         }
         $reportes->update($report);
 
-        return redirect()->route('verificacion.index')->with('success','Registro Actualizado Con Exito');
+        return redirect()->route('verificacion.create')->with('success','Registro Actualizado Con Exito');
     }
     /**
      * Remove the specified resource from storage.
