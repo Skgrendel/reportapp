@@ -9,5 +9,5 @@ class auditoria extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['reporte_id','medidor_coincide','lectura_correcta','comercio_coincide','foto_correcta','anomalia_coincide'];
+    protected $fillable = ['reporte_id','medidor_coincide','lectura_correcta','comercio_coincide','foto_correcta','anomalias_coincide'];
 }
