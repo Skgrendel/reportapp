@@ -93,7 +93,12 @@ class reportes extends Model
     {
         return $this->hasOne(direcciones::class, 'contrato', 'contrato');
     }
-    
+
+    public function auditorias()
+    {
+        return $this->hasOne(auditoria::class,'reporte_id','id');
+    }
+
     public function ComercioReporte()
     {
         return $this->hasOne(vs_comercios::class, 'id', 'tipo_comercio');

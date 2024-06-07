@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ReportExportall;
+use App\Models\auditoria;
 use App\Models\direcciones;
 use App\Models\reportes;
 use App\Models\vs_anomalias;
@@ -85,7 +86,6 @@ class CoordinadorController extends Controller
      */
     public function show($id)
     {
-
         $reporte = reportes::find($id);
         $contrato = $reporte->contrato;
         $validate = direcciones::where('contrato',$contrato)->first();
@@ -101,11 +101,8 @@ class CoordinadorController extends Controller
     {
 
         $reporte = reportes::find($id);
-
         $anomaliasIds = json_decode($reporte->anomalia);
-
         $anomalias = vs_anomalias::whereIn('id', $anomaliasIds)->get();
-
         $direccion = direcciones::where('contrato', $reporte->contrato)->first();
 
         // Ruta de la plantilla
@@ -217,10 +214,20 @@ class CoordinadorController extends Controller
 
         $estado = $request->estado;
         $reporte = reportes::find($id);
+        $id = $reporte->id;
 
         if ($reporte == null) {
             return redirect()->route('coordinador.index')->with('error', 'No se encontró el reporte');
         }
+
+        auditoria::create([
+            'reporte_id' => $id,
+            'medidor_coincide' => $request->input('medidor_coincide'),
+            'lectura_correcta' => $request->input('lectura_correcta'),
+            'foto_correcta' => $request->input('foto_correcta'),
+            'comercio_coincide' => $request->input('comercio_coincide'),
+            'anomalias_coincide' => $request->input('anomalias_coincide'),
+        ]);
 
         if ( $reporte && $estado == 6) {
             $reporte->estado = $request->estado;
@@ -237,7 +244,7 @@ class CoordinadorController extends Controller
         }
     }
 
-    
+
 
     /**
      * Remove the specified resource from storage.

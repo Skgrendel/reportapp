@@ -156,7 +156,7 @@ class RevisadosDatatable extends DataTableComponent
     public function builder(): Builder
     {
         return reportes::query()
-            ->where('reportes.revisado', 1);
+            ->where('reportes.confirmado_anomalia', 1);
     }
 
     public function columns(): array
