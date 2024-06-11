@@ -126,7 +126,7 @@ class AuditoriaController extends Controller
         $reporte = reportes::find($id);
         $id = $reporte->id;
 
-          auditoria::create([
+        auditoria::create([
             'reporte_id' => $id,
             'medidor_coincide' => $request->input('medidor_coincide'),
             'lectura_correcta' => $request->input('lectura_correcta'),
@@ -138,19 +138,24 @@ class AuditoriaController extends Controller
         if ($request->input('revisado') == 1) {
             $reporte->update(['revisado' => $request->input('revisado')]);
         }
+
         if ($request->input('anomalia_confirmada') == 1) {
+
             $reporte->update(['confirmado_anomalia' => $request->input('anomalia_confirmada')]);
         }
 
-        $anomalias = json_encode($request->anomalias);
-        $reporte->contrato = $request->contrato;
-        $reporte->medidor = $request->medidor;
-        $reporte->lectura = $request->lectura;
-        $reporte->imposibilidad = $request->imposibilidad;
-        $reporte->tipo_comercio = $request->tipo_comercio;
-        $reporte->medidor_anomalia = $request->medidor_anomalia;
-        $reporte->anomalia = $anomalias;
-        $reporte->update();
+        if ($request->contrato) {
+            $anomalias = json_encode($request->anomalias);
+            $reporte->contrato = $request->contrato;
+            $reporte->medidor = $request->medidor;
+            $reporte->lectura = $request->lectura;
+            $reporte->imposibilidad = $request->imposibilidad;
+            $reporte->tipo_comercio = $request->tipo_comercio;
+            $reporte->medidor_anomalia = $request->medidor_anomalia;
+            $reporte->anomalia = $anomalias;
+            $reporte->update();
+        }
+
 
         return redirect()->route('auditorias.index')->with('success', 'Reporte Actualizado');
     }
