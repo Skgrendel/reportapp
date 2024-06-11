@@ -192,7 +192,7 @@
                                                     value="{{ $reporte->medidor }}">
                                             </div>
                                             <div class="form-group mb-1 ">
-                                                <label for="exampleFormControlInput1">Numero de Lectura</label>
+                                                <label for="lectura">Numero de Lectura</label>
                                                 <input type="text" class="form-control" id="lectura" name="lectura"
                                                     value="{{ $reporte->lectura }}">
                                             </div>
