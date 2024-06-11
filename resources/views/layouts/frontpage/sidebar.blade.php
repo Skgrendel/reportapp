@@ -85,7 +85,10 @@
                             <a href="{{ route('auditorias.index') }}">Pendientes</a>
                         </li>
                         <li class="{{ Route::currentRouteName() == 'auditorias.create' ? 'active' : '' }}">
-                            <a href="{{ route('auditorias.create') }}">Anomalias Confirmadas</a>
+                            <a href="{{ route('auditorias.create') }}">Revisados</a>
+                        </li>
+                        <li class="{{ Route::currentRouteName() == 'confirmadas' ? 'active' : '' }}">
+                            <a href="{{ route('confirmadas') }}">Anomalias Ok</a>
                         </li>
                     </ul>
                 </li>

@@ -194,14 +194,16 @@ class AuditoriaDatatable extends DataTableComponent
             ->with(['personal', 'ComercioReporte', 'ciclos'])
             ->where('reportes.estado', 6)
             ->where(function ($query) {
-                $query->whereNull('reportes.revisado')
-                    ->orWhere('reportes.revisado', 0);
-            });
+               $query->whereNull('reportes.revisado')
+                     ->orWhere('reportes.revisado', 0);})
+            ->where(function ($query) {
+               $query->whereNull('reportes.confirmado_anomalia')
+                     ->orWhere('reportes.confirmado_anomalia', 0);
+           });
     }
 
     public function columns(): array
     {
-
         return [
             Column::make("Nombres", "personal.nombres")
                 ->searchable(),

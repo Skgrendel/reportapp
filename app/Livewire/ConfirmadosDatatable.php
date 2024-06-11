@@ -10,8 +10,7 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\reportes;
 use App\Models\vs_anomalias;
-
-class RevisadosDatatable extends DataTableComponent
+class ConfirmadosDatatable extends DataTableComponent
 {
     protected $model = reportes::class;
     public ?int $searchFilterDebounce = 500;
@@ -139,25 +138,13 @@ class RevisadosDatatable extends DataTableComponent
                         $builder->where('ciclos.ciclo', '1012');
                     }
                 }),
-            SelectFilter::make('Confirmados')
-                ->options([
-                    '' => 'All',
-                    '1' => 'Confirmados',
-                ])
-                ->filter(function (Builder $builder, $value) {
-                    if ($value === '1') {
-                        $builder->where('confirmado_anomalia', '1');
-                    }
-                }),
-
-
         ];
     }
     public function builder(): Builder
     {
         return reportes::query()
-            ->where('reportes.revisado','1')
-            ->where('reportes.confirmado_anomalia','0');
+            ->where('reportes.confirmado_anomalia', '1')
+            ->where('reportes.revisado', '1');
     }
 
     public function columns(): array

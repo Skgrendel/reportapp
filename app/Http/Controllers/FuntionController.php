@@ -38,4 +38,9 @@ class FuntionController extends Controller
         $filename = now()->format('Y-m-d H:i:s') . '.xlsx';
         return Excel::download(new ReportVerificacion($reporteIds),$filename);
     }
+    
+    public function anomaliasok()
+    {
+        return view('auditoria.confirmado');
+    }
 }

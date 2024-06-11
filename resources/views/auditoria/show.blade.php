@@ -92,7 +92,7 @@
                             <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        @if ($reporte->confirmado_anomalia != 1)
+                        @if ($reporte->revisado === 1 && $reporte->confirmado_anomalia === 0 )
                             <form action="{{ route('auditorias.update', $reporte->id) }}" method="post">
                                 @csrf
                                 @method('PUT')
@@ -100,16 +100,17 @@
                                     <div class="col-3">
                                         <span class="form-check-label">¿Anomalia Confirmada?</span>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" id="inlineCheckbox1" name="confirmado_anomalia" value="1">
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                name="confirmado_anomalia" value="1">
                                             <label class="form-check-label" for="inlineCheckbox1">si</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" id="inlineCheckbox1" name="confirmado_anomalia" value="0" >
+                                            <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                name="confirmado_anomalia" value="0">
                                             <label class="form-check-label" for="inlineCheckbox1">no</label>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class=" d-flex justify-content-between ">
                                     <button type="submit" id="submitButtonRevisado"
                                         class="btn btn-success">Guardar</button>
@@ -249,10 +250,8 @@
                                                 name="revisado" value="1">
                                             <label class="form-check-label" for="inlineCheckbox1">Revisado</label>
                                         </div>
-                                        <button type="submit" id="submitButtonObservacion"
-                                            class="btn btn-success">Guardar</button>
                                     </div>
-                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -273,83 +272,90 @@
                                 </div>
                                 <hr class="my-2">
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-3">
-                                    <span class="form-check-label">¿El medidor coincide?</span>
-                                    @isset($reporte->auditorias->medidor_coincide)
-                                        <div class="form-check ">
-                                            <span class="form-check-label">
-                                                {{ $reporte->auditorias->medidor_coincide == 1 ? 'Si' : '' }}</span>
+                            <div class="row">
+                                <div>
+                                    <div class="row mt-3">
+                                        <div class="col-3">
+                                            <span class="form-check-label">¿El medidor coincide con el Contrato?</span>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="medidor_coincide" value="1">
+                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                            </div>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="medidor_coincide" value="0">
+                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                            </div>
                                         </div>
-                                        <div class="form-check ">
-                                            <span
-                                                class="form-check-label">{{ $reporte->auditorias->medidor_coincide == 0 ? 'No' : '' }}</span>
+                                        <div class="col-3">
+                                            <span class="form-check-label">¿La lectura es correcta?</span>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="lectura_correcta" value="1">
+                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                            </div>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="lectura_correcta" value="0">
+                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                            </div>
                                         </div>
-                                    @else
-                                    @endisset
+                                        <div class="col-6">
+                                            <span class="form-check-label">¿La foto fue tomada en la posicion
+                                                correcta?</span>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="foto_correcta" value="1">
+                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                            </div>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="foto_correcta" value="0">
+                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-4">
+                                            <span class="form-check-label">¿Coicide el tipo de comercio?</span>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="comercio_coincide" value="1">
+                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                            </div>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="comercio_coincide" value="0">
+                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <span class="form-check-label">¿anomalia Confirmada?</span>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="confirmado_anomalia" value="1">
+                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                            </div>
+                                            <div class="form-check ">
+                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                    name="confirmado_anomalia" value="0">
+                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <textarea id="editor" rows="5" name="observaciones" class="form-control mb-3"
+                                        placeholder="Escriba Sus Observaciones"></textarea>
                                 </div>
-                                <div class="col-3">
-                                    <span class="form-check-label">¿La lectura es correcta?</span>
-                                    @isset($reporte->auditorias->lectura_correcta)
-                                        <div class="form-check ">
-                                            <span class="form-check-label">
-                                                {{ $reporte->auditorias->lectura_correcta == 1 ? 'Si' : '' }}</span>
-                                        </div>
-                                        <div class="form-check ">
-                                            <span class="form-check-label">
-                                                {{ $reporte->auditorias->lectura_correcta == 0 ? 'No' : '' }}</span>
-                                        </div>
-                                    @else
-                                    @endisset
+                                <div class="alert alert-warning d-none" role="alert" id="progressBarObservacion">
+                                    <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
                                 </div>
-                                <div class="col-6">
-                                    <span class="form-check-label">¿La foto fue tomada en la posicion correcta?</span>
-                                    @isset($reporte->auditorias->foto_correcta)
-                                        <div class="form-check ">
-                                            <span class="form-check-label">
-                                                {{ $reporte->auditorias->foto_correcta == 1 ? 'Si' : '' }}</span>
-                                        </div>
-                                        <div class="form-check ">
-                                            <span class="form-check-label">
-                                                {{ $reporte->auditorias->foto_correcta == 0 ? 'No' : '' }}</span>
-                                        </div>
-                                    @else
-                                    @endisset
+                                <hr class="my-2">
+                                <div class=" d-flex justify-content-end">
+                                    <button type="submit" id="submitButtonObservacion"
+                                        class="btn btn-success">Guardar</button>
                                 </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-4">
-                                    <span class="form-check-label">¿Coicide el tipo de comercio?</span>
-                                    @isset($reporte->auditorias->comercio_coincide)
-                                        <div class="form-check ">
-                                            <span class="form-check-label">
-                                                {{ $reporte->auditorias->comercio_coincide == 1 ? 'Si' : '' }}</span>
-                                        </div>
-                                        <div class="form-check ">
-                                            <span class="form-check-label">
-                                                {{ $reporte->auditorias->comercio_coincide == 0 ? 'No' : '' }}</span>
-                                        </div>
-                                    @else
-                                    @endisset
-                                </div>
-                                <div class="col-4">
-                                    <span class="form-check-label">¿Es anomalia?</span>
-                                    @isset($reporte->auditorias->anomalias_coincide)
-                                        <div class="form-check ">
-                                            <span class="form-check-label">
-                                                {{ $reporte->auditorias->anomalias_coincide == 1 ? 'Si' : '' }}</span>
-                                        </div>
-                                        <div class="form-check ">
-                                            <span class="form-check-label">
-                                                {{ $reporte->auditorias->anomalias_coincide == 0 ? 'No' : '' }}</span>
-                                        </div>
-                                    @else
-                                    @endisset
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="editor">Observaciones</label>
-                                <P id="editor" class="form-control mb-3">{{ $reporte->observaciones }}</P>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -206,19 +206,6 @@
                                                 <label class="form-check-label" for="inlineCheckbox1">no</label>
                                             </div>
                                         </div>
-                                        <div class="col-4">
-                                            <span class="form-check-label">¿Es anomalia?</span>
-                                            <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
-                                                    name="anomalias_coincide" value="1">
-                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
-                                            </div>
-                                            <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
-                                                    name="anomalias_coincide" value="0">
-                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
-                                            </div>
-                                        </div>
                                     </div>
                                     <textarea id="editor" rows="5" name="observaciones" class="form-control mb-3" placeholder="Escriba Sus Observaciones"></textarea>
                                 </div>

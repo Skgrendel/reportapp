@@ -26,7 +26,7 @@ class ReportExportall implements FromCollection,WithHeadings
         ->map(function ($reporte) {
             // Decodifica el JSON a un array de PHP
             $anomaliaIds = json_decode($reporte->anomalia);
-            
+
             $ciclos = direcciones::where('contrato', $reporte->contrato)->value('ciclo');
             // Busca los nombres de las anomalías correspondientes a los IDs
             $anomaliaNombres = vs_anomalias::whereIn('id', $anomaliaIds)->pluck('nombre')->toArray();
