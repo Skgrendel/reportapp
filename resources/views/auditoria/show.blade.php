@@ -92,7 +92,7 @@
                             <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        @if ($reporte->revisado === 1 && $reporte->confirmado_anomalia === 0 )
+                        @if ($reporte->revisado === 1 && $reporte->confirmado_anomalia === 0)
                             <form action="{{ route('auditorias.update', $reporte->id) }}" method="post">
                                 @csrf
                                 @method('PUT')
@@ -155,7 +155,7 @@
             </div>
         </div>
     </div>
-    @if ($reporte->revisado === 0 || $reporte->revisado === null)
+    @if ($reporte->revisado === 0 && $reporte->confirmado_anomalia === 0)
         <div class="widget-content widget-content-area mt-2 ">
             <div class="row">
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
@@ -362,91 +362,92 @@
 
             </div>
         </div>
-    @endif
-    @if (Auth::user()->hasRole('Coordinador') ||Auth::user()->hasRole('Administrador') )
-        <div class="widget-content widget-content-area mt-2 ">
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                <div class="card style-4" style="width: 100%; height: 100%;">
-                    <div class="card-body pt-3">
-                        <div class="m-o-dropdown-list">
-                            <div class="media mt-0 mb-3">
-                                <div class="badge--group me-3">
-                                    <div class="badge badge-success badge-dot"></div>
+        @if (Auth::user()->hasRole('Coordinador') || Auth::user()->hasRole('Administrador'))
+            <div class="widget-content widget-content-area mt-2 ">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+                    <div class="card style-4" style="width: 100%; height: 100%;">
+                        <div class="card-body pt-3">
+                            <div class="m-o-dropdown-list">
+                                <div class="media mt-0 mb-3">
+                                    <div class="badge--group me-3">
+                                        <div class="badge badge-success badge-dot"></div>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading mb-0">
+                                            <span class="text-card">Subir Evidencias</span>
+                                        </h4>
+                                    </div>
                                 </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading mb-0">
-                                        <span class="text-card">Subir Evidencias</span>
-                                    </h4>
-                                </div>
+                                <hr class="my-2">
                             </div>
-                            <hr class="my-2">
-                        </div>
-                        <div class="row">
-                            <form action="{{ route('coordinador.store') }}" method="POST" enctype="multipart/form-data"
-                                id="evidencias">
-                                @csrf
-                                <input type="text" name="id" value="{{ $reporte->id }}" hidden>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-4 ">
-                                            <input type="file" class="form-control " id="foto1" name="foto1"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" id="foto1">Inmueble</span>
+                            <div class="row">
+                                <form action="{{ route('coordinador.store') }}" method="POST"
+                                    enctype="multipart/form-data" id="evidencias">
+                                    @csrf
+                                    <input type="text" name="id" value="{{ $reporte->id }}" hidden>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-group mb-4 ">
+                                                <input type="file" class="form-control " id="foto1"
+                                                    name="foto1" accept="image/jpeg">
+                                                <span class="input-group-text" id="foto1">Inmueble</span>
+                                            </div>
+                                            <div class="input-group mb-4">
+                                                <input type="file" class="form-control" id="foto2" name="foto2"
+                                                    accept="image/jpeg">
+                                                <span class="input-group-text" for="foto2">Numero Serial</span>
+                                            </div>
+                                            <div class="input-group mb-4">
+                                                <input type="file" class="form-control" id="foto3" name="foto3"
+                                                    accept="image/jpeg">
+                                                <span class="input-group-text" for="foto3">Numero Lectura</span>
+                                            </div>
                                         </div>
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto2" name="foto2"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto2">Numero Serial</span>
-                                        </div>
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto3" name="foto3"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto3">Numero Lectura</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto4" name="foto4"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto4">Numero Medidor</span>
-                                        </div>
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto5" name="foto5"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto5">Estado Medidor</span>
-                                        </div>
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto6" name="foto6"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto6">Opcional</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <input class="form-control" type="file" id="video" name="video"
-                                                accept="video/mp4">
-                                            <span class="input-group-text" id="video">video</span>
+                                        <div class="col-md-6">
+                                            <div class="input-group mb-4">
+                                                <input type="file" class="form-control" id="foto4" name="foto4"
+                                                    accept="image/jpeg">
+                                                <span class="input-group-text" for="foto4">Numero Medidor</span>
+                                            </div>
+                                            <div class="input-group mb-4">
+                                                <input type="file" class="form-control" id="foto5" name="foto5"
+                                                    accept="image/jpeg">
+                                                <span class="input-group-text" for="foto5">Estado Medidor</span>
+                                            </div>
+                                            <div class="input-group mb-4">
+                                                <input type="file" class="form-control" id="foto6" name="foto6"
+                                                    accept="image/jpeg">
+                                                <span class="input-group-text" for="foto6">Opcional</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <hr class="my-4">
-                                <div class="alert alert-success d-none alert-evidencia" role="alert" id="alert">
-                                </div>
-                                <div class="alert alert-warning d-none" role="alert" id="progressBarEvidencias">
-                                    <span class="text-sm">Cargando Archivos Porfavor Espere.....</span>
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <button type="submit" id="submitButtonEvidencias"
-                                        class="btn btn-success">Guardar</button>
-                                </div>
-                            </form>
+                                    <div class="row ">
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <input class="form-control" type="file" id="video" name="video"
+                                                    accept="video/mp4">
+                                                <span class="input-group-text" id="video">video</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="my-4">
+                                    <div class="alert alert-success d-none alert-evidencia" role="alert"
+                                        id="alert">
+                                    </div>
+                                    <div class="alert alert-warning d-none" role="alert" id="progressBarEvidencias">
+                                        <span class="text-sm">Cargando Archivos Porfavor Espere.....</span>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="submit" id="submitButtonEvidencias"
+                                            class="btn btn-success">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
     @endif
 
     <div class="widget-content widget-content-area mt-2 ">
