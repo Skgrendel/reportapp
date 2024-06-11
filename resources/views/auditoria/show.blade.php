@@ -243,7 +243,6 @@
                                         <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
                                     </div>
                                     <hr class="my-2">
-
                                     <div class=" d-flex justify-content-between">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
@@ -364,7 +363,7 @@
             </div>
         </div>
     @endif
-    @if (Auth::user()->hasRole('Coordinador'))
+    @if (Auth::user()->hasRole('Coordinador') ||Auth::user()->hasRole('Administrador') )
         <div class="widget-content widget-content-area mt-2 ">
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
                 <div class="card style-4" style="width: 100%; height: 100%;">

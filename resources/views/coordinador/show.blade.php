@@ -206,6 +206,13 @@
                                                 <label class="form-check-label" for="inlineCheckbox1">no</label>
                                             </div>
                                         </div>
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    name="revisado" value="1">
+                                                <label class="form-check-label" for="inlineCheckbox1">Revisado</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <textarea id="editor" rows="5" name="observaciones" class="form-control mb-3" placeholder="Escriba Sus Observaciones"></textarea>
                                 </div>
