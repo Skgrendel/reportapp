@@ -139,7 +139,7 @@ class AuditoriaController extends Controller
             $reporte->update(['revisado' => $request->input('revisado')]);
         }
 
-        if ($request->input('anomalia_confirmada') == 1) {
+        if ($request->input('confirmado_anomalia') == 1) {
 
             $reporte->update(['confirmado_anomalia' => $request->input('anomalia_confirmada')]);
         }
