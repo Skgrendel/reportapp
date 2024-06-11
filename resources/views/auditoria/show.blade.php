@@ -277,41 +277,41 @@
                                         <div class="col-3">
                                             <span class="form-check-label">¿El medidor coincide con el Contrato?</span>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="1"
                                                     name="medidor_coincide" value="1">
-                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                                <label class="form-check-label" for="1">si</label>
                                             </div>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="2"
                                                     name="medidor_coincide" value="0">
-                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                                <label class="form-check-label" for="2">no</label>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <span class="form-check-label">¿La lectura es correcta?</span>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="3"
                                                     name="lectura_correcta" value="1">
-                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                                <label class="form-check-label" for="3">si</label>
                                             </div>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="4"
                                                     name="lectura_correcta" value="0">
-                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                                <label class="form-check-label" for="4">no</label>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <span class="form-check-label">¿La foto fue tomada en la posicion
                                                 correcta?</span>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="5"
                                                     name="foto_correcta" value="1">
-                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                                <label class="form-check-label" for="5">si</label>
                                             </div>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="6"
                                                     name="foto_correcta" value="0">
-                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                                <label class="form-check-label" for="6">no</label>
                                             </div>
                                         </div>
                                     </div>
@@ -319,27 +319,27 @@
                                         <div class="col-4">
                                             <span class="form-check-label">¿Coicide el tipo de comercio?</span>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="7"
                                                     name="comercio_coincide" value="1">
-                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                                <label class="form-check-label" for="7">si</label>
                                             </div>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="8"
                                                     name="comercio_coincide" value="0">
-                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                                <label class="form-check-label" for="8">no</label>
                                             </div>
                                         </div>
                                         <div class="col-4">
                                             <span class="form-check-label">¿anomalia Confirmada?</span>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="9"
                                                     name="confirmado_anomalia" value="1">
-                                                <label class="form-check-label" for="inlineCheckbox1">si</label>
+                                                <label class="form-check-label" for="9">si</label>
                                             </div>
                                             <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="radio" id="10"
                                                     name="confirmado_anomalia" value="0">
-                                                <label class="form-check-label" for="inlineCheckbox1">no</label>
+                                                <label class="form-check-label" for="10">no</label>
                                             </div>
                                         </div>
                                     </div>
