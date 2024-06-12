@@ -364,7 +364,7 @@
         </div>
         @if (Auth::user()->hasRole('Coordinador') || Auth::user()->hasRole('Administrador'))
             <div class="widget-content widget-content-area mt-2 ">
-                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
                     <div class="card style-4" style="width: 100%; height: 100%;">
                         <div class="card-body pt-3">
                             <div class="m-o-dropdown-list">
