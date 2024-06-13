@@ -329,21 +329,6 @@
                                                 <label class="form-check-label" for="8">no</label>
                                             </div>
                                         </div>
-                                        @if (Auth::user()->hasRole('Administrador'))
-                                        <div class="col-4">
-                                            <span class="form-check-label">¿anomalia Confirmada?</span>
-                                            <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="9"
-                                                    name="confirmado_anomalia" value="1">
-                                                <label class="form-check-label" for="9">si</label>
-                                            </div>
-                                            <div class="form-check ">
-                                                <input class="form-check-input" type="radio" id="10"
-                                                    name="confirmado_anomalia" value="0">
-                                                <label class="form-check-label" for="10">no</label>
-                                            </div>
-                                        </div>
-                                        @endif
                                     </div>
                                     <textarea id="editor" rows="5" name="observaciones" class="form-control mb-3"
                                         placeholder="Escriba Sus Observaciones"></textarea>
