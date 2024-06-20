@@ -88,7 +88,7 @@
                     </div>
                     <div class="card-footer pt-0 border-0">
                         <div class="progress br-30 progress-sm">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100"
+                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726" aria-valuenow="100"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="card-footer pt-0 border-0">
                         <div class="progress br-30 progress-sm">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100"
+                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726" aria-valuenow="100"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
