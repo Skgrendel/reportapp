@@ -220,7 +220,6 @@ class CoordinadorController extends Controller
             return redirect()->route('coordinador.index')->with('error', 'No se encontró el reporte');
         }
 
-
         auditoria::create([
             'reporte_id' => $id,
             'medidor_coincide' => $request->input('medidor_coincide'),
@@ -228,8 +227,8 @@ class CoordinadorController extends Controller
             'foto_correcta' => $request->input('foto_correcta'),
             'comercio_coincide' => $request->input('comercio_coincide'),
             'anomalias_coincide' => $request->input('anomalias_coincide'),
+            'soborno' => $request->input('soborno'),
         ]);
-
 
         if ( $reporte && $estado == 6) {
             $reporte->revisado = $request->input('revisado');
