@@ -21,8 +21,13 @@ class RevisadosDatatable extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id')->setTableRowUrl(function($row) {
+            return route('auditorias.show',['auditoria' => $row]);
+        });
         $this->setColumnSelectStatus(false);
+        $this->setTableAttributes([
+            'class' => 'table table-bordered  custom-table',
+        ]);
     }
 
     public function bulkActions(): array

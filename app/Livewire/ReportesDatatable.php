@@ -21,10 +21,15 @@ class ReportesDatatable extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id')->setTableRowUrl(function($row) {
+            return route('coordinador.show',['coordinador' => $row]);
+        });
         $this->setColumnSelectStatus(false);
         $this->setConfigurableAreas([
             'toolbar-left-start' => 'coordinador.export',
+        ]);
+        $this->setTableAttributes([
+            'class' => 'table table-bordered  custom-table',
         ]);
     }
 
@@ -178,6 +183,7 @@ class ReportesDatatable extends DataTableComponent
                 ->format(fn ($value) => $value->format('d/M/Y'))
                 ->collapseOnMobile(),
             Column::make('Acciones', 'id')
+            ->unclickable()
                 ->format(
                     fn ($value, $row, Column $column) => view('coordinador.actions', compact('value'))
                 ),

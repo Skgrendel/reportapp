@@ -58,7 +58,7 @@
         <table
             wire:key="{{ $tableName }}-table"
             {{ $attributes->merge($customAttributes['table'])
-                ->class(['laravel-livewire-table table table-secondary table-hover ' => $customAttributes['table']['default'] ?? true])
+                ->class(['laravel-livewire-table table ' => $customAttributes['table']['default'] ?? true])
                 ->except('default')
             }}
         >

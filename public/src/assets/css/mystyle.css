@@ -1,0 +1,23 @@
+/* Tabla modificada*/
+
+.custom-table {
+    border-collapse: collapse !important; /* Asegura que los bordes colapsen en uno solo */
+    border-radius: 3px !important; /* Bordes redondeados para toda la tabla */
+    overflow: hidden !important; /* Asegura que el contenido no se salga de los bordes redondeados */
+}
+
+.custom-table th, .custom-table td {
+   
+    border-bottom: 1px solid #0E1726 !important; /* Borde inferior de las celdas */
+    border-left: none !important; /* Sin borde izquierdo */
+    border-right: none !important; /* Sin borde derecho */
+}
+
+.custom-table tbody tr:nth-of-type(odd) {
+    background-color: transparent !important; /* Sobrescribir cualquier estilo de fila rayada */
+}
+
+.custom-table th, .td-left {
+    background: #0E1726 !important;
+    color: #fff !important;
+}

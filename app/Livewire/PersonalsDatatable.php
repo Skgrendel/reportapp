@@ -24,6 +24,9 @@ class PersonalsDatatable extends DataTableComponent
         $this->setConfigurableAreas([
             'toolbar-left-end' => 'personals.drop',
         ]);
+        $this->setTableAttributes([
+            'class' => 'table table-bordered custom-table',
+        ]);
     }
 
     public function columns(): array
