@@ -1,5 +1,5 @@
 <div>
-    <div class="py-12">
+    <div class="py-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
@@ -22,57 +22,68 @@
                             </button>
                         </div>
                     </form>
-                    @if ($contrato)
-                    <div class="mt-4">
-                        <div class="flex items-center justify-center">
-                            <div class="w-full max-w-md">
-                                <ul class="mb-4">
-                                    <label class="font-medium" for="direccion">Direccion del Contrato</label><br>
-                                    <span
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        id="direccion">{{ $direccion }}</span>
-                                </ul>
-                                <ul class="mb-4">
-                                    <label class="font-medium">Barrio</label> <br>
-                                    <span
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $nombre_barrio }}
-                                    </span>
-                                </ul>
-                                <ul class="mb-4">
-                                    <label class="font-medium">Nombre del Usuario</label><br>
-                                    <span
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $nombre_user }}
-                                    </span>
-                                </ul>
-                                <ul class="mb-4">
-                                    <label class="font-medium">Medidor</label><br>
-                                    <span
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $medidor }}
-                                    </span>
-                                </ul>
-                                <ul class="mb-4">
-                                    <label class="font-medium">Categoria</label><br>
-                                    <span
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $categoria }}
-                                    </span>
-                                </ul>
-                                <ul class="mb-4">
-                                    <label class="font-medium">Estado del Servicio</label> <br>
-                                    <span
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $estado_servicio }}</span>
-                                </ul>
-                                <ul class="mb-4">
-                                    <label class="font-medium">Descripcion</label><br>
-                                    <span
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $descripcion }}
-                                    </span>
-                                </ul>
+                </div>
+            </div>
+        </div>
+        @if ($contrato)
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-2">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+                        <div class="mt-4">
+                            <div class="flex items-center justify-center">
+                                <div class="w-full max-w-md">
+                                    <ul class="mb-4">
+                                        <label class="font-medium" for="direccion">Direccion del Contrato</label><br>
+                                        <span
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            id="direccion">{{ $direccion }}</span>
+                                    </ul>
+                                    <ul class="mb-4">
+                                        <label class="font-medium">Barrio</label> <br>
+                                        <span
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $nombre_barrio }}
+                                        </span>
+                                    </ul>
+                                    <ul class="mb-4">
+                                        <label class="font-medium">Nombre del Usuario</label><br>
+                                        <span
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $nombre_user }}
+                                        </span>
+                                    </ul>
+                                    <ul class="mb-4">
+                                        <label class="font-medium">Medidor</label><br>
+                                        <span
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $medidor }}
+                                        </span>
+                                    </ul>
+                                    <ul class="mb-4">
+                                        <label class="font-medium">Categoria</label><br>
+                                        <span
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $categoria }}
+                                        </span>
+                                    </ul>
+                                    <ul class="mb-4">
+                                        <label class="font-medium">Estado del Servicio</label> <br>
+                                        <span
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $estado_servicio }}</span>
+                                    </ul>
+                                    <ul class="mb-4">
+                                        <label class="font-medium">Descripcion</label><br>
+                                        <span
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $descripcion }}
+                                        </span>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    @endif
-
-                    @if ($errorMessage)
+                </div>
+            </div>
+        @endif
+        @if ($errorMessage)
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-2">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
                         <div class="mt-2">
                             <div class="flex justify-between items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-red-800 dark:text-red-300 dark:border-red-800"
                                 role="alert">
@@ -90,6 +101,9 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    </div>
                 </div>
             </div>
+        @endif
+    </div>
+</div>
