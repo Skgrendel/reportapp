@@ -12,6 +12,9 @@
                         <x-nav-link href="{{ route('reportes.index') }}" :active="request()->routeIs(['reportes.index', 'reportes.create'])">
                             {{ __('Agentes') }}
                         </x-nav-link>
+                        <x-nav-link href="{{ route('busqueda') }}" :active="request()->routeIs(['busqueda'])">
+                            {{ __('Busqueda') }}
+                        </x-nav-link>
                         <x-nav-link href="{{ route('verificacion.index') }}" :active="request()->routeIs(['verificacion.index'])">
                             {{ __('Verificaciones') }}
                         </x-nav-link>
@@ -169,6 +172,11 @@
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link href="{{ route('verificacion.index') }}" :active="request()->routeIs('verificacion.index')">
                     {{ __('Verificaciones') }}
+                </x-responsive-nav-link>
+            </div>
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link href="{{ route('busqueda') }}" :active="request()->routeIs('busqueda')">
+                    {{ __('Busqueda') }}
                 </x-responsive-nav-link>
             </div>
         @endcan

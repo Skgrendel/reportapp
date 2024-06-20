@@ -22,29 +22,54 @@
                             </button>
                         </div>
                     </form>
-
-                    @if ($result)
-                        <div class="mt-2">
-                            <div class="flex justify-between items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
-                                role="alert">
-                                <div class="flex items-center">
-                                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                                    </svg>
-                                    <span class="sr-only">Info</span>
-                                    <div>
-                                        <span class="font-medium">Direccion del Contrato:</span> {{ $direccion }}
-                                    </div>
-                                </div>
-                                <a type="button" href="https://www.google.com/maps/place/{{ $result }}"
-                                    target="_blank" wire:click="resetAll"
-                                    class="text-white bg-green-800 hover:bg-green-500/90 focus:ring-4 focus:outline-none focus:ring-green-800/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
-                                    Ver en Maps
-                                </a>
+                    @if ($contrato)
+                    <div class="mt-4">
+                        <div class="flex items-center justify-center">
+                            <div class="w-full max-w-md">
+                                <ul class="mb-4">
+                                    <label class="font-medium" for="direccion">Direccion del Contrato</label><br>
+                                    <span
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        id="direccion">{{ $direccion }}</span>
+                                </ul>
+                                <ul class="mb-4">
+                                    <label class="font-medium">Barrio</label> <br>
+                                    <span
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $nombre_barrio }}
+                                    </span>
+                                </ul>
+                                <ul class="mb-4">
+                                    <label class="font-medium">Nombre del Usuario</label><br>
+                                    <span
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $nombre_user }}
+                                    </span>
+                                </ul>
+                                <ul class="mb-4">
+                                    <label class="font-medium">Medidor</label><br>
+                                    <span
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $medidor }}
+                                    </span>
+                                </ul>
+                                <ul class="mb-4">
+                                    <label class="font-medium">Categoria</label><br>
+                                    <span
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $categoria }}
+                                    </span>
+                                </ul>
+                                <ul class="mb-4">
+                                    <label class="font-medium">Estado del Servicio</label> <br>
+                                    <span
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $estado_servicio }}</span>
+                                </ul>
+                                <ul class="mb-4">
+                                    <label class="font-medium">Descripcion</label><br>
+                                    <span
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $descripcion }}
+                                    </span>
+                                </ul>
                             </div>
                         </div>
+                    </div>
                     @endif
 
                     @if ($errorMessage)
