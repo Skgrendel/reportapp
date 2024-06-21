@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\direcciones;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
@@ -18,12 +17,6 @@ class Search extends Component
     public $estado_servicio = '';
     public $nombre_barrio = '';
     public $errorMessage = '';
-
-
-    public function resetAll()
-    {
-        $this->reset('search', 'result', 'direccion', 'errorMessage');
-    }
 
     public function SearchLocation()
 {
