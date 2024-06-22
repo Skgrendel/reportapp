@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            @livewire('revisados-datatable')
+            {{-- @livewire('revisados-datatable') --}}
         </div>
     </div>
 @endsection
