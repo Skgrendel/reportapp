@@ -31,7 +31,7 @@ class Search extends Component
     $this->contrato = null;
     $this->errorMessage = null;
 
-    // Token de acceso
+    // Token de acceso  a la aplicacion del gis
     $token = env('GIS_API_TOKEN');
 
     // URL de consulta
