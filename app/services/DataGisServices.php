@@ -25,6 +25,7 @@ class DataGisServices
             'info' => [
                 'direccion' => $attributes['DIRECCION'],
                 'estado' => $attributes['ESTADOPRODUCTO'],
+                'estadoCorte' => $attributes['DESCESTADOCORTE'],
                 'usuario' => $attributes['NOMBREUSUARIO'],
                 'barrio' => $attributes['NOMBREBARRIO'],
                 'categoria' =>$attributes['DESCATEGORIA'],

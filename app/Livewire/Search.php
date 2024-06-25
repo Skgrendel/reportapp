@@ -40,6 +40,7 @@ class Search extends Component
     // Decodificar la respuesta JSON
     $data = $urlConsulta->json();
 
+
     // Verificar si hay datos y si el array 'features' tiene al menos un elemento
     if (!$data || !isset($data['features'][0])) {
         // Manejar el caso de error
