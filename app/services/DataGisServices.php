@@ -11,7 +11,7 @@ class DataGisServices
 {
     public function DataGis(string $id)
     {
-        $token = 'lNonRqbV5deWakOmePwDf7VIJChpJ_8IYrkrHMmK_50J0IdGUTeWniXN_r74mn9b9z13Du5egEEG88V5RadOve82YgACV4t6EtoRAabbj5Owr8sRodGTs2R8cdf3QxNtISjU3GVUqxNBsZqOTQlebWr07tA7GZrJUF_6s__oxkChThBei0KoUR9_Lr1ZfoCQTQneZH-ALYa5zZUzA5rdDy0P7BwSqBFIAXIEltYHKCCQsFSjH_BILnTE1SR_8Mp6c2NWEHvnHeCLHSXSUMNhjg..';
+        $token = 'tgTMx_2NDmcYyhmiKpTZfEZVR2VEKCIZjtTg9IwNNxjX-Iq9vEjeu2PU7DL9gE7fSjBEvJqTW8UqSyB1VWGFoz0q7EAxKsSaoNZ8pqPspfcM2ahoRfoiaao18AcrpXYaIL2pt32oCrb5AD8PlLgN8i8ioWxEaq-JhfHlBA5XOaGDJKWEY7eOhlz78CdKlB-NlBpgUq7hEWrt8Rb7_1Id1KmB6tolkaAmskh2hgoAmKd2bx_cehm3d7MJujGGLzTwxUBhBdwLCVy1uU2CFmAGQw..';
         $data = reportes::find($id);
         $surtigas = direcciones::where('contrato', $data->contrato)->first();
         // URL de consulta
