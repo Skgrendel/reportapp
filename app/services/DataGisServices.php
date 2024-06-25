@@ -11,7 +11,7 @@ class DataGisServices
 {
     public function DataGis(string $id)
     {
-        $token = 'P5aTByUWVzWw3ilbxJmD0vAEerN9OElB1j9ejYyx2fK0Cs47u5xqFpsvE0wdo6rCRvO44h-73_9UG3ThaNR8WDEkBY0HtxIyI2zBLIqjs8Ku-n3RT_DCPaNo0y_ntV245yY5-JdN7uCcEwQcNcFq5IsysqFfW-0jeb09N7LmR-nNbXpGEYdhAfp2UZan3TJdC3-7ooi1DT8qULQaNs1v1pVDesthxgfkODhUTzXeqOCd7EhiTC8tkZATqd5GGI5L0GKaWp_yiUJ99yMyqnb7Pg..';
+        $token = env('GIS_API_TOKEN');
         $data = reportes::find($id);
         $surtigas = direcciones::where('contrato', $data->contrato)->first();
         // URL de consulta
