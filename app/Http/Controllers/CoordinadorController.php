@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\ReportExportall;
+
 use App\Models\auditoria;
 use App\Models\direcciones;
 use App\Models\reportes;
 use App\Models\vs_anomalias;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+use App\Services\DataGisServices;
 use PhpOffice\PhpWord\TemplateProcessor;
-use PhpOffice\PhpWord\IOFactory;
+
 
 class CoordinadorController extends Controller
 {
+    private  $info;
+
+    public function __construct()
+    {
+
+        $this->info = new DataGisServices();
+
+    }
     /**
      * Display a listing of the resource.
      */
@@ -86,12 +94,13 @@ class CoordinadorController extends Controller
      */
     public function show($id)
     {
+        $gis = $this->info->DataGis($id);
         $reporte = reportes::find($id);
         $contrato = $reporte->contrato;
         $validate = direcciones::where('contrato',$contrato)->first();
         $anomaliasIds = json_decode($reporte->anomalia);
         $anomalias = vs_anomalias::whereIn('id', $anomaliasIds)->get();
-        return view('coordinador.show', compact('reporte', 'anomalias','validate'));
+        return view('coordinador.show', compact('reporte', 'anomalias','validate','gis'));
     }
 
     /**
