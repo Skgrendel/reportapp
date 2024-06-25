@@ -150,7 +150,15 @@
                                 </ul>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="text-card">
+                                <ul>
+                                    <li>
+                                        Estado de Conexion: {{ $gis['info']['estadoCorte'] ?? 'sin datos' }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-footer pt-0 border-0">
                         <div class="progress br-30 progress-sm">
