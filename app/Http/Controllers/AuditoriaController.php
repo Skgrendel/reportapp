@@ -8,12 +8,19 @@ use App\Models\reportes;
 use App\Models\vs_anomalias;
 use App\Models\vs_comercios;
 use App\Models\vs_imposibilidad;
+use App\Services\DataGisServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use PhpOffice\PhpWord\TemplateProcessor;
 
 class AuditoriaController extends Controller
 {
+    private  $info;
+
+    public function __construct()
+    {
+        $this->info = new DataGisServices();
+    }
     /**
      * Display a listing of the resource.
      */
@@ -43,6 +50,7 @@ class AuditoriaController extends Controller
      */
     public function show(string $id)
     {
+        $gis = $this->info->DataGis($id);
         $anomaliasver = vs_anomalias::pluck('nombre', 'id');
         $comercios = vs_comercios::pluck('nombre', 'id');
         $imposibilidad = vs_imposibilidad::pluck('nombre', 'id');
@@ -52,7 +60,7 @@ class AuditoriaController extends Controller
         $validate = direcciones::where('contrato', $contrato)->first();
         $anomaliasIds = json_decode($reporte->anomalia);
         $anomalias = vs_anomalias::whereIn('id', $anomaliasIds)->get();
-        return view('auditoria.show', compact('reporte', 'anomalias', 'validate', 'anomaliasver', 'comercios', 'imposibilidad', 'anomaliasIds'));
+        return view('auditoria.show', compact('reporte', 'anomalias', 'validate', 'anomaliasver', 'comercios', 'imposibilidad', 'anomaliasIds','gis'));
     }
 
     /**

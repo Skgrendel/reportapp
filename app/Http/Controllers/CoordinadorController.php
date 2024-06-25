@@ -19,9 +19,7 @@ class CoordinadorController extends Controller
 
     public function __construct()
     {
-
         $this->info = new DataGisServices();
-
     }
     /**
      * Display a listing of the resource.
