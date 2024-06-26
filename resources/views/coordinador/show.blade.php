@@ -120,7 +120,7 @@
                             <div class="text-card text-sm col-6">
                                 <ul>
                                     <li class="mb-2">
-                                        Usuario :  {{ $gis['info']['usuario'] ?? 'sin datos' }}
+                                        Usuario :  {{ $gis['info']['usuario'] ?? 'sin datos' . ' ' . $gis['info']['apellido'] ?? 'sin datos'  }}
                                     </li>
                                     <li class="mb-2">
                                         Direccion: {{ $gis['info']['direccion'] ?? 'sin datos' }}

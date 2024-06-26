@@ -12,6 +12,7 @@ class Search extends Component
     public $contrato = '';
     public $medidor = '';
     public $nombre_user = '';
+    public $apellido = '';
     public $categoria = '';
     public $descripcion = '';
     public $estado_servicio = '';
@@ -24,6 +25,7 @@ class Search extends Component
     $this->direccion = null;
     $this->estado_servicio = null;
     $this->nombre_user = null;
+    $this->apellido = null;
     $this->nombre_barrio = null;
     $this->categoria = null;
     $this->descripcion = null;
@@ -51,6 +53,7 @@ class Search extends Component
         $this->direccion = $attributes['DIRECCION'];
         $this->estado_servicio = $attributes['ESTADOPRODUCTO'];
         $this->nombre_user = $attributes['NOMBREUSUARIO'];
+        $this->apellido = $attributes['APELLIDO'];
         $this->nombre_barrio = $attributes['NOMBREBARRIO'];
         $this->categoria = $attributes['DESCATEGORIA'];
         $this->descripcion = $attributes['DESCRIPCION'];
