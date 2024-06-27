@@ -34,6 +34,7 @@ class ReportExportall implements FromCollection,WithHeadings
             return [
                 $reporte->contrato,
                 $reporte->medidor,
+                $reporte->medidor_anomalia,
                 $reporte->direccion,
                 implode(', ', $anomaliaNombres),
                 $reporte->imposibilidadReporte->nombre,
@@ -52,6 +53,7 @@ class ReportExportall implements FromCollection,WithHeadings
         return [
             'Contrato',
             'Medidor',
+            'Medidor_anomalia',
             'Dirección',
             'Anomalía',
             'Imposibilidad',
