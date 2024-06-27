@@ -264,6 +264,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </div>
                                     <textarea id="editor" rows="5" name="observaciones" class="form-control mb-3" placeholder="Escriba Sus Observaciones"></textarea>
                                 </div>
                                 <div class="mb-2">
