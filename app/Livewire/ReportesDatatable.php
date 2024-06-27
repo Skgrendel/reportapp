@@ -157,7 +157,15 @@ class ReportesDatatable extends DataTableComponent
                     } elseif ($value === '13') {
                         $builder->whereJsonContains('reportes.anomalia', '67');
                     } elseif ($value === '14') {
-                        $builder->whereJsonContains('reportes.anomalia', '67');
+                        $builder->whereJsonContains('reportes.anomalia', '68');
+                    } elseif ($value === '15') {
+                        $builder->whereJsonContains('reportes.anomalia', '71');
+                    } elseif ($value === '16') {
+                        $builder->whereJsonContains('reportes.anomalia', '72');
+                    } elseif ($value === '17') {
+                        $builder->whereJsonContains('reportes.anomalia', '73');
+                    } elseif ($value === '18') {
+                        $builder->whereJsonContains('reportes.anomalia', '74');
                     }
                 }),
         ];

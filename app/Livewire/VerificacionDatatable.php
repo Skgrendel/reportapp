@@ -86,33 +86,41 @@ class VerificacionDatatable extends DataTableComponent
                 ])
                 ->filter(function (Builder $builder, $value) {
                     if ($value === '1') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '8');
+                        $builder->whereJsonContains('reportes.anomalia', '8');
                     } elseif ($value === '2') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '9');
+                        $builder->whereJsonContains('reportes.anomalia', '9');
                     } elseif ($value === '3') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '10');
+                        $builder->whereJsonContains('reportes.anomalia', '10');
                     } elseif ($value === '4') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '11');
+                        $builder->whereJsonContains('reportes.anomalia', '11');
                     } elseif ($value === '5') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '12');
+                        $builder->whereJsonContains('reportes.anomalia', '12');
                     } elseif ($value === '6') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '13');
+                        $builder->whereJsonContains('reportes.anomalia', '13');
                     } elseif ($value === '7') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '14');
+                        $builder->whereJsonContains('reportes.anomalia', '14');
                     } elseif ($value === '8') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '15');
+                        $builder->whereJsonContains('reportes.anomalia', '15');
                     } elseif ($value === '9') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '16');
+                        $builder->whereJsonContains('reportes.anomalia', '16');
                     } elseif ($value === '10') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '17');
+                        $builder->whereJsonContains('reportes.anomalia', '17');
                     } elseif ($value === '11') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '18');
+                        $builder->whereJsonContains('reportes.anomalia', '18');
                     } elseif ($value === '12') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '63');
+                        $builder->whereJsonContains('reportes.anomalia', '63');
                     } elseif ($value === '13') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '67');
+                        $builder->whereJsonContains('reportes.anomalia', '67');
                     } elseif ($value === '14') {
-                        $builder->whereJsonContains('reportesverificacions.anomalia', '67');
+                        $builder->whereJsonContains('reportes.anomalia', '68');
+                    } elseif ($value === '15') {
+                        $builder->whereJsonContains('reportes.anomalia', '71');
+                    } elseif ($value === '16') {
+                        $builder->whereJsonContains('reportes.anomalia', '72');
+                    } elseif ($value === '17') {
+                        $builder->whereJsonContains('reportes.anomalia', '73');
+                    } elseif ($value === '18') {
+                        $builder->whereJsonContains('reportes.anomalia', '74');
                     }
                 }),
         ];
