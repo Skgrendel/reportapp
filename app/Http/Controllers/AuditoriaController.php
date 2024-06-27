@@ -140,6 +140,7 @@ class AuditoriaController extends Controller
             'lectura_correcta' => $request->input('lectura_correcta'),
             'foto_correcta' => $request->input('foto_correcta'),
             'comercio_coincide' => $request->input('comercio_coincide'),
+            'no_encontrado' => $request->input('no_encontrado'),
             'observaciones' => $request->input('observaciones'),
         ]);
 
