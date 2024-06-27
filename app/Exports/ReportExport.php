@@ -35,6 +35,7 @@ class ReportExport implements FromCollection,WithHeadings
                 $reporte->personal->apellidos,
                 $reporte->contrato,
                 $reporte->medidor,
+                $reporte->medidor_anomalia,
                 $reporte->lectura,
                 $reporte->direccion,
                 $ciclos,
@@ -42,7 +43,6 @@ class ReportExport implements FromCollection,WithHeadings
                 $reporte->imposibilidadReporte->nombre,
                 $reporte->ComercioReporte->nombre,
                 $reporte->EstadoReporte->nombre,
-                $reporte->medidor_anomalia,
                 $reporte->created_at->format('Y-m-d'),
                 $reporte->created_at->format('H:i:s '),
 
