@@ -369,9 +369,9 @@
                                         </div>
                                         <div class="col-4">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                <input class="form-check-input" type="checkbox" id="noencontrado"
                                                     name="no_encontrado" value="1">
-                                                <label class="form-check-label" for="inlineCheckbox1">No Encontrado</label>
+                                                <label class="form-check-label" for="noencontrado">No Encontrado</label>
                                             </div>
                                         </div>
                                     </div>
