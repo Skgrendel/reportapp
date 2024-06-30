@@ -22,6 +22,8 @@ class ReportExport implements FromCollection,WithHeadings
     {
         return reportes::with(['ComercioReporte', 'AnomaliaReporte','imposibilidadReporte','EstadoReporte','personal'])
         ->whereIn('id', $this->reporteIds)
+        ->where('revisado',0)
+        ->where('confirmado_anomalia',0)
         ->get()
         ->map(function ($reporte) {
             // Decodifica el JSON a un array de PHP
