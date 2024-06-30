@@ -287,6 +287,11 @@
                                                 name="revisado" value="1" required>
                                             <label class="form-check-label" for="inlineCheckbox1">Revisado</label>
                                         </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                name="confirmado_anomalia" value="1" >
+                                            <label class="form-check-label" for="inlineCheckbox1">confirmado anomalia</label>
+                                        </div>
                                     </div>
 
                             </div>
