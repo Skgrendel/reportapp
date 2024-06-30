@@ -170,6 +170,9 @@ class ConfirmadosDatatable extends DataTableComponent
                 ->searchable(),
             Column::make("Lectura", "lectura")
                 ->collapseOnMobile(),
+                Column::make("Medidor", "medidor")
+                ->collapseAlways()
+                ->searchable(),
             Column::make("Anomalia", "anomalia")
                 ->format(function ($value) {
                     $ids = json_decode($value); // Decodifica el JSON
