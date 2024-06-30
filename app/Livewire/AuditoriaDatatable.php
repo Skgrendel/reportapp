@@ -23,8 +23,8 @@ class AuditoriaDatatable extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id')->setTableRowUrl(function($row) {
-            return route('auditorias.show',['auditoria' => $row]);
+        $this->setPrimaryKey('id')->setTableRowUrl(function ($row) {
+            return route('auditorias.show', ['auditoria' => $row]);
         });
         $this->setColumnSelectStatus(false);
         $this->setTableAttributes([
@@ -114,7 +114,7 @@ class AuditoriaDatatable extends DataTableComponent
                         $builder->whereJsonContains('reportes.anomalia', '74');
                     }
                 }),
-                SelectFilter::make('Ciclos')
+            SelectFilter::make('Ciclos')
                 ->options([
                     '' => 'All',
                     '1' => '1001',
@@ -133,38 +133,27 @@ class AuditoriaDatatable extends DataTableComponent
                 ->filter(function (Builder $builder, $value) {
                     if ($value === '1') {
                         $builder->where('ciclos.ciclo', '1001');
-                    }
-                     elseif ($value === '2') {
+                    } elseif ($value === '2') {
                         $builder->where('ciclos.ciclo', '1002');
-                    }
-                     elseif ($value === '3') {
+                    } elseif ($value === '3') {
                         $builder->where('ciclos.ciclo', '1003');
-                    }
-                     elseif ($value === '4') {
+                    } elseif ($value === '4') {
                         $builder->where('ciclos.ciclo', '1004');
-                    }
-                     elseif ($value === '5') {
+                    } elseif ($value === '5') {
                         $builder->where('ciclos.ciclo', '1005');
-                    }
-                     elseif ($value === '6') {
+                    } elseif ($value === '6') {
                         $builder->where('ciclos.ciclo', '1006');
-                    }
-                     elseif ($value === '7') {
+                    } elseif ($value === '7') {
                         $builder->where('ciclos.ciclo', '1007');
-                    }
-                     elseif ($value === '8') {
+                    } elseif ($value === '8') {
                         $builder->where('ciclos.ciclo', '1008');
-                    }
-                     elseif ($value === '9') {
+                    } elseif ($value === '9') {
                         $builder->where('ciclos.ciclo', '1009');
-                    }
-                     elseif ($value === '10') {
+                    } elseif ($value === '10') {
                         $builder->where('ciclos.ciclo', '1010');
-                    }
-                     elseif ($value === '11') {
+                    } elseif ($value === '11') {
                         $builder->where('ciclos.ciclo', '1011');
-                    }
-                     elseif ($value === '12') {
+                    } elseif ($value === '12') {
                         $builder->where('ciclos.ciclo', '1012');
                     }
                 }),
@@ -199,27 +188,29 @@ class AuditoriaDatatable extends DataTableComponent
             ->with(['personal', 'ComercioReporte', 'ciclos'])
             ->where('reportes.estado', 6)
             ->where(function ($query) {
-               $query->whereNull('reportes.revisado')
-                     ->orWhere('reportes.revisado', 0);})
+                $query->whereNull('reportes.revisado')
+                    ->orWhere('reportes.revisado', 0);
+            })
             ->where(function ($query) {
-               $query->whereNull('reportes.confirmado_anomalia')
-                     ->orWhere('reportes.confirmado_anomalia', 0);
-           });
+                $query->whereNull('reportes.confirmado_anomalia')
+                    ->orWhere('reportes.confirmado_anomalia', 0);
+            });
     }
 
     public function columns(): array
     {
         return [
             Column::make("Nombres", "personal.nombres")
-                ->searchable(),
-            Column::make("Apellidos", "personal.apellidos"),
+                ->collapseAlways(),
+            Column::make("Apellidos", "personal.apellidos")
+                ->collapseAlways(),
             Column::make("Contrato", "contrato")
                 ->collapseOnMobile()
                 ->searchable(),
             Column::make("Lectura", "lectura")
                 ->collapseOnMobile(),
             Column::make("Medidor", "medidor")
-                ->collapseAlways()
+                ->collapseOnMobile()
                 ->searchable(),
             Column::make("Anomalia", "anomalia")
                 ->format(function ($value) {
