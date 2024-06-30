@@ -22,8 +22,8 @@ class ReportExport implements FromCollection,WithHeadings
     {
         return reportes::with(['ComercioReporte', 'AnomaliaReporte','imposibilidadReporte','EstadoReporte','personal'])
         ->whereIn('id', $this->reporteIds)
-        ->where('revisado',0)
-        ->where('confirmado_anomalia',0)
+        ->where('revisado', '0')
+        ->where('confirmado_anomalia','0')
         ->get()
         ->map(function ($reporte) {
             // Decodifica el JSON a un array de PHP
@@ -40,6 +40,8 @@ class ReportExport implements FromCollection,WithHeadings
                 $reporte->medidor_anomalia,
                 $reporte->lectura,
                 $reporte->direccion,
+                $reporte->revisado,
+                $reporte->confrimado_anomalia,
                 $ciclos,
                 implode(', ', $anomaliaNombres),
                 $reporte->imposibilidadReporte->nombre,
@@ -62,6 +64,8 @@ class ReportExport implements FromCollection,WithHeadings
             'medidor_anomalia',
             'Lectura',
             'Dirección',
+            'Revisado',
+            'Confirmado',
             'ciclos',
             'Anomalía',
             'Imposibilidad',
