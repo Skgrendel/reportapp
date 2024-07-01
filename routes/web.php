@@ -38,6 +38,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::post('/addcomercio', [ReportesController::class, 'addcomercio'])->name('addcomercio');
         Route::get('/busqueda', [DireccionesController::class, 'index'])->name('busqueda');
         Route::get('/informes', [InformesController::class, 'InfoGeneral'])->name('informes');
+        Route::get('/test', [InformesController::class, 'testEndpoint'])->name('testEndpoint');
         Route::resource('/auditorias', AuditoriaController::class)->names('auditorias');
         Route::get('/confirmadas', [FuntionController::class,'anomaliasok'])->name('confirmadas');
         Route::resource('/verificacion',ReportesverificacionController::class)->names('verificacion');
