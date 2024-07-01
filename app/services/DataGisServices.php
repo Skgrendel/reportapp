@@ -23,13 +23,7 @@ class DataGisServices
                     'error' => 'No se encontró la dirección asociada al contrato proporcionado.'
                 ];
             }
-            // Verificar conectividad
-            $connectivityCheck = Http::get('https://www.google.com');
-            if ($connectivityCheck->failed()) {
-                return [
-                    'error' => 'El servidor no tiene acceso a Internet.'
-                ];
-            }
+
             // URL de consulta
             $urlConsulta = Http::withoutVerifying()
                 ->withHeaders([
