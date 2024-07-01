@@ -91,8 +91,8 @@
                     </div>
                     <div class="card-footer pt-0 border-0">
                         <div class="progress br-30 progress-sm">
-                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726" aria-valuenow="100"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         @if ($reporte->revisado === 1 && $reporte->confirmado_anomalia === 0)
                             <form action="{{ route('auditorias.update', $reporte->id) }}" method="post">
@@ -133,60 +133,65 @@
                                 <div class="media-body">
                                     <h4 class="media-heading mb-0">
                                         <span class="text-card">Datos del Usuario
-                                            </span>
+                                        </span>
                                     </h4>
                                 </div>
                             </div>
                             <hr class="my-2">
                         </div>
-                        <div class="row mt-2">
-                            <div class="text-card text-sm col-6">
-                                <ul>
-                                    <li class="mb-2">
-                                        Usuario :  {{ $gis['info']['usuario'] ?? 'sin datos' . ' ' . $gis['info']['apellido'] ?? 'sin datos'  }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Direccion: {{ $gis['info']['direccion'] ?? 'sin datos' }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Barrio: {{ $gis['info']['barrio'] ?? 'sin datos' }}
-                                    </li>
-                                    <li>
-                                        Categoria: {{ $gis['info']['categoria'] ?? 'sin datos' }}
-                                    </li>
-                                </ul>
+                        @if (isset($gis['info']))
+                            <div class="row mt-2">
+                                <div class="text-card text-sm col-6">
+                                    <ul>
+                                        <li class="mb-2">
+                                            Usuario :
+                                            {{ $gis['info']['usuario'] ?? ('sin datos' . ' ' . $gis['info']['apellido'] ?? 'sin datos') }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Direccion: {{ $gis['info']['direccion'] ?? 'sin datos' }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Barrio: {{ $gis['info']['barrio'] ?? 'sin datos' }}
+                                        </li>
+                                        <li>
+                                            Categoria: {{ $gis['info']['categoria'] ?? 'sin datos' }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="text-card text-sm col-6">
+                                    <ul>
+                                        <li class="mb-2">
+                                            Contrato: {{ $gis['info']['contrato'] ?? 'sin datos' }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Medidor : {{ $gis['info']['medidor'] ?? 'sin datos' }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Estado: {{ $gis['info']['estado'] ?? 'sin datos' }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Descripcion: {{ $gis['info']['descripcion'] ?? 'sin datos' }}
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="text-card text-sm col-6">
-                                <ul>
-                                    <li class="mb-2">
-                                        Contrato:  {{ $gis['info']['contrato'] ?? 'sin datos' }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Medidor :  {{ $gis['info']['medidor'] ?? 'sin datos' }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Estado: {{ $gis['info']['estado'] ?? 'sin datos' }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Descripcion: {{ $gis['info']['descripcion'] ?? 'sin datos' }}
-                                    </li>
-                                </ul>
+                            <div class="row">
+                                <div class="text-card">
+                                    <ul>
+                                        <li>
+                                            Estado de Conexion: {{ $gis['info']['estadoCorte'] ?? 'sin datos' }}
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="text-card">
-                                <ul>
-                                    <li>
-                                        Estado de Conexion: {{ $gis['info']['estadoCorte'] ?? 'sin datos' }}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                            @else
+                                <p>{{$gis['error']}}</p>
+                        @endif
                     </div>
                     <div class="card-footer pt-0 border-0">
                         <div class="progress br-30 progress-sm">
-                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726" aria-valuenow="100"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -494,7 +499,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                         <a href="/imagen/{{ $reporte->{'foto' . $i} }}"
                             class="withDescriptionGlightbox glightbox-content"
-                            data-glightbox="title: Contrato y medidor; description: Contrato #:{{ $reporte->contrato }} - Medidor #:{{ $reporte->medidor }} - Lectura: {{$reporte->lectura}};">
+                            data-glightbox="title: Contrato y medidor; description: Contrato #:{{ $reporte->contrato }} - Medidor #:{{ $reporte->medidor }} - Lectura: {{ $reporte->lectura }};">
                             <img src="/imagen/{{ $reporte->{'foto' . $i} }}" alt="image" class="img-fluid"
                                 style="width:350px; height:250px; object-fit: cover;" />
                         </a>
