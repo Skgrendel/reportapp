@@ -93,8 +93,8 @@
                     </div>
                     <div class="card-footer pt-0 border-0">
                         <div class="progress br-30 progress-sm">
-                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726" aria-valuenow="100"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -110,60 +110,65 @@
                                 <div class="media-body">
                                     <h4 class="media-heading mb-0">
                                         <span class="text-card">Datos del Usuario
-                                            </span>
+                                        </span>
                                     </h4>
                                 </div>
                             </div>
                             <hr class="my-2">
                         </div>
-                        <div class="row mt-2">
-                            <div class="text-card text-sm col-6">
-                                <ul>
-                                    <li class="mb-2">
-                                        Usuario :  {{ $gis['info']['usuario'] ?? 'sin datos' . ' ' . $gis['info']['apellido'] ?? 'sin datos'  }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Direccion: {{ $gis['info']['direccion'] ?? 'sin datos' }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Barrio: {{ $gis['info']['barrio'] ?? 'sin datos' }}
-                                    </li>
-                                    <li>
-                                        Categoria: {{ $gis['info']['categoria'] ?? 'sin datos' }}
-                                    </li>
-                                </ul>
+                        @if (isset($gis['info']))
+                            <div class="row mt-2">
+                                <div class="text-card text-sm col-6">
+                                    <ul>
+                                        <li class="mb-2">
+                                            Usuario :
+                                            {{ $gis['info']['usuario'] ?? ('sin datos' . ' ' . $gis['info']['apellido'] ?? 'sin datos') }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Direccion: {{ $gis['info']['direccion'] ?? 'sin datos' }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Barrio: {{ $gis['info']['barrio'] ?? 'sin datos' }}
+                                        </li>
+                                        <li>
+                                            Categoria: {{ $gis['info']['categoria'] ?? 'sin datos' }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="text-card text-sm col-6">
+                                    <ul>
+                                        <li class="mb-2">
+                                            Contrato: {{ $gis['info']['contrato'] ?? 'sin datos' }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Medidor : {{ $gis['info']['medidor'] ?? 'sin datos' }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Estado: {{ $gis['info']['estado'] ?? 'sin datos' }}
+                                        </li>
+                                        <li class="mb-2">
+                                            Descripcion: {{ $gis['info']['descripcion'] ?? 'sin datos' }}
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="text-card text-sm col-6">
-                                <ul>
-                                    <li class="mb-2">
-                                        Contrato:  {{ $gis['info']['contrato'] ?? 'sin datos' }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Medidor :  {{ $gis['info']['medidor'] ?? 'sin datos' }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Estado: {{ $gis['info']['estado'] ?? 'sin datos' }}
-                                    </li>
-                                    <li class="mb-2">
-                                        Descripcion: {{ $gis['info']['descripcion'] ?? 'sin datos' }}
-                                    </li>
-                                </ul>
+                            <div class="row">
+                                <div class="text-card">
+                                    <ul>
+                                        <li>
+                                            Estado de Conexion: {{ $gis['info']['estadoCorte'] ?? 'sin datos' }}
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="text-card">
-                                <ul>
-                                    <li>
-                                        Estado de Conexion: {{ $gis['info']['estadoCorte'] ?? 'sin datos' }}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        @else
+                            <p>{{ $gis['error'] }}</p>
+                        @endif
                     </div>
                     <div class="card-footer pt-0 border-0">
                         <div class="progress br-30 progress-sm">
-                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726" aria-valuenow="100"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 100%;background:#0E1726"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -189,8 +194,8 @@
                             <hr class="my-2">
                         </div>
                         <div class="row">
-                            <form action="{{ route('coordinador.update', $reporte->id) }}" method="post" id="observacion"
-                                enctype="multipart/form-data">
+                            <form action="{{ route('coordinador.update', $reporte->id) }}" method="post"
+                                id="observacion" enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
                                 <div>
@@ -222,7 +227,8 @@
                                             </div>
                                         </div>
                                         <div class="col-6">
-                                            <span class="form-check-label">¿La foto fue tomada en la posicion correcta?</span>
+                                            <span class="form-check-label">¿La foto fue tomada en la posicion
+                                                correcta?</span>
                                             <div class="form-check ">
                                                 <input class="form-check-input" type="radio" id="inlineCheckbox1"
                                                     name="foto_correcta" value="1">
@@ -260,130 +266,130 @@
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
                                                     name="soborno" value="1">
-                                                <label class="form-check-label" for="inlineCheckbox1">Intento de Soborno</label>
+                                                <label class="form-check-label" for="inlineCheckbox1">Intento de
+                                                    Soborno</label>
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
-                                    <textarea id="editor" rows="5" name="observaciones" class="form-control mb-3" placeholder="Escriba Sus Observaciones"></textarea>
                                 </div>
-                                <div class="mb-2">
-                                    <div class="form-check form-check-success form-check-inline">
-                                        <label class="form-check-label" for="inlineRadio1">
-                                            <span class="badge badge-success">Revisado</span>
-                                            <input class="form-check-input" type="radio" name="estado"
-                                                id="inlineRadio1" value="6">
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-danger form-check-inline">
-                                        <label class="form-check-label" for="inlineRadio2">
-                                            <span class="badge badge-danger">Rechazado</span>
-                                            <input class="form-check-input" type="radio" name="estado"
-                                                id="inlineRadio2" value="7">
-                                        </label>
-                                    </div>
-                                    @if ($errors->has('estado'))
-                                        <span class="text-danger">{{ $errors->first('estado') }}</span>
-                                    @endif
-                                </div>
-
-                                <div class="alert alert-warning d-none" role="alert" id="progressBarObservacion">
-                                    <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
-                                </div>
-                                <hr class="my-2">
-                                <div class=" d-flex justify-content-end">
-                                    <button type="submit" id="submitButtonObservacion"
-                                        class="btn btn-success">Guardar</button>
-                                </div>
-                            </form>
+                                <textarea id="editor" rows="5" name="observaciones" class="form-control mb-3"
+                                    placeholder="Escriba Sus Observaciones"></textarea>
                         </div>
+                        <div class="mb-2">
+                            <div class="form-check form-check-success form-check-inline">
+                                <label class="form-check-label" for="inlineRadio1">
+                                    <span class="badge badge-success">Revisado</span>
+                                    <input class="form-check-input" type="radio" name="estado" id="inlineRadio1"
+                                        value="6">
+                                </label>
+                            </div>
+                            <div class="form-check form-check-danger form-check-inline">
+                                <label class="form-check-label" for="inlineRadio2">
+                                    <span class="badge badge-danger">Rechazado</span>
+                                    <input class="form-check-input" type="radio" name="estado" id="inlineRadio2"
+                                        value="7">
+                                </label>
+                            </div>
+                            @if ($errors->has('estado'))
+                                <span class="text-danger">{{ $errors->first('estado') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="alert alert-warning d-none" role="alert" id="progressBarObservacion">
+                            <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
+                        </div>
+                        <hr class="my-2">
+                        <div class=" d-flex justify-content-end">
+                            <button type="submit" id="submitButtonObservacion" class="btn btn-success">Guardar</button>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
-                <div class="card style-4" style="width: 100%; height: 100%;">
-                    <div class="card-body pt-3">
-                        <div class="m-o-dropdown-list">
-                            <div class="media mt-0 mb-3">
-                                <div class="badge--group me-3">
-                                    <div class="badge badge-success badge-dot"></div>
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
+            <div class="card style-4" style="width: 100%; height: 100%;">
+                <div class="card-body pt-3">
+                    <div class="m-o-dropdown-list">
+                        <div class="media mt-0 mb-3">
+                            <div class="badge--group me-3">
+                                <div class="badge badge-success badge-dot"></div>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading mb-0">
+                                    <span class="text-card">Subir Evidencias</span>
+                                </h4>
+                            </div>
+                        </div>
+                        <hr class="my-2">
+                    </div>
+                    <div class="row">
+                        <form action="{{ route('coordinador.store') }}" method="POST" enctype="multipart/form-data"
+                            id="evidencias">
+                            @csrf
+                            <input type="text" name="id" value="{{ $reporte->id }}" hidden>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group mb-4 ">
+                                        <input type="file" class="form-control " id="foto1" name="foto1"
+                                            accept="image/jpeg">
+                                        <span class="input-group-text" id="foto1">Inmueble</span>
+                                    </div>
+                                    <div class="input-group mb-4">
+                                        <input type="file" class="form-control" id="foto2" name="foto2"
+                                            accept="image/jpeg">
+                                        <span class="input-group-text" for="foto2">Numero Serial</span>
+                                    </div>
+                                    <div class="input-group mb-4">
+                                        <input type="file" class="form-control" id="foto3" name="foto3"
+                                            accept="image/jpeg">
+                                        <span class="input-group-text" for="foto3">Numero Lectura</span>
+                                    </div>
                                 </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading mb-0">
-                                        <span class="text-card">Subir Evidencias</span>
-                                    </h4>
+                                <div class="col-md-6">
+                                    <div class="input-group mb-4">
+                                        <input type="file" class="form-control" id="foto4" name="foto4"
+                                            accept="image/jpeg">
+                                        <span class="input-group-text" for="foto4">Numero Medidor</span>
+                                    </div>
+                                    <div class="input-group mb-4">
+                                        <input type="file" class="form-control" id="foto5" name="foto5"
+                                            accept="image/jpeg">
+                                        <span class="input-group-text" for="foto5">Estado Medidor</span>
+                                    </div>
+                                    <div class="input-group mb-4">
+                                        <input type="file" class="form-control" id="foto6" name="foto6"
+                                            accept="image/jpeg">
+                                        <span class="input-group-text" for="foto6">Opcional</span>
+                                    </div>
                                 </div>
                             </div>
-                            <hr class="my-2">
-                        </div>
-                        <div class="row">
-                            <form action="{{ route('coordinador.store') }}" method="POST"
-                                enctype="multipart/form-data" id="evidencias">
-                                @csrf
-                                <input type="text" name="id" value="{{ $reporte->id }}" hidden>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-4 ">
-                                            <input type="file" class="form-control " id="foto1"
-                                                name="foto1" accept="image/jpeg">
-                                            <span class="input-group-text" id="foto1">Inmueble</span>
-                                        </div>
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto2" name="foto2"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto2">Numero Serial</span>
-                                        </div>
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto3" name="foto3"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto3">Numero Lectura</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto4" name="foto4"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto4">Numero Medidor</span>
-                                        </div>
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto5" name="foto5"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto5">Estado Medidor</span>
-                                        </div>
-                                        <div class="input-group mb-4">
-                                            <input type="file" class="form-control" id="foto6" name="foto6"
-                                                accept="image/jpeg">
-                                            <span class="input-group-text" for="foto6">Opcional</span>
-                                        </div>
+                            <div class="row ">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <input class="form-control" type="file" id="video" name="video"
+                                            accept="video/mp4">
+                                        <span class="input-group-text" id="video">video</span>
                                     </div>
                                 </div>
-                                <div class="row ">
-                                    <div class="col-md-12">
-                                        <div class="input-group">
-                                            <input class="form-control" type="file" id="video" name="video"
-                                                accept="video/mp4">
-                                            <span class="input-group-text" id="video">video</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="my-4">
-                                <div class="alert alert-success d-none alert-evidencia" role="alert"
-                                    id="alert">
-                                </div>
-                                <div class="alert alert-warning d-none" role="alert" id="progressBarEvidencias">
-                                    <span class="text-sm">Cargando Archivos Porfavor Espere.....</span>
-                                </div>
-                                <div class="d-flex justify-content-end">
-                                    <button type="submit" id="submitButtonEvidencias"
-                                        class="btn btn-success">Guardar</button>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                            <hr class="my-4">
+                            <div class="alert alert-success d-none alert-evidencia" role="alert" id="alert">
+                            </div>
+                            <div class="alert alert-warning d-none" role="alert" id="progressBarEvidencias">
+                                <span class="text-sm">Cargando Archivos Porfavor Espere.....</span>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" id="submitButtonEvidencias"
+                                    class="btn btn-success">Guardar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
     </div>
     <div class="widget-content widget-content-area mt-2 ">
         <div class="row">
@@ -392,7 +398,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                         <a href="/imagen/{{ $reporte->{'foto' . $i} }}"
                             class="withDescriptionGlightbox glightbox-content"
-                            data-glightbox="title: Contrato y medidor; description: Contrato #:{{ $reporte->contrato }} - Medidor #:{{ $reporte->medidor }} - Lectura: {{$reporte->lectura}};">
+                            data-glightbox="title: Contrato y medidor; description: Contrato #:{{ $reporte->contrato }} - Medidor #:{{ $reporte->medidor }} - Lectura: {{ $reporte->lectura }};">
                             <img src="/imagen/{{ $reporte->{'foto' . $i} }}" alt="image" class="img-fluid"
                                 style="width:350px; height:250px; object-fit: cover;" />
                         </a>

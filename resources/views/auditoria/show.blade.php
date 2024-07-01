@@ -184,8 +184,8 @@
                                     </ul>
                                 </div>
                             </div>
-                            @else
-                                <p>{{$gis['error']}}</p>
+                        @else
+                            <p>{{ $gis['error'] }}</p>
                         @endif
                     </div>
                     <div class="card-footer pt-0 border-0">
