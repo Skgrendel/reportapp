@@ -22,9 +22,12 @@ class DataGisServices
                     'error' => 'No se encontró la dirección asociada al contrato proporcionado.'
                 ];
             }
-
             // URL de consulta
-            $urlConsulta = Http::withoutVerifying()->get($url);
+            $urlConsulta = Http::withoutVerifying()
+            ->withHeaders([
+                'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+            ])
+            ->get($url);
 
             // Verificar el estado de la respuesta
             if ($urlConsulta->failed()) {
