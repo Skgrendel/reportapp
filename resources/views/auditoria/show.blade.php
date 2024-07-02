@@ -282,9 +282,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="alert alert-warning d-none" role="alert" id="progressBarObservacion">
-                                        <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
-                                    </div>
+
                             </div>
                         </div>
                     </div>
