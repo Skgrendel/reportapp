@@ -86,48 +86,48 @@ class VerificacionDatatable extends DataTableComponent
                 ])
                 ->filter(function (Builder $builder, $value) {
                     if ($value === '1') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '8');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '8');
                     } elseif ($value === '2') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '9');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '9');
                     } elseif ($value === '3') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '10');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '10');
                     } elseif ($value === '4') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '11');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '11');
                     } elseif ($value === '5') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '12');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '12');
                     } elseif ($value === '6') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '13');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '13');
                     } elseif ($value === '7') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '14');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '14');
                     } elseif ($value === '8') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '15');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '15');
                     } elseif ($value === '9') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '16');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '16');
                     } elseif ($value === '10') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '17');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '17');
                     } elseif ($value === '11') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '18');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '18');
                     } elseif ($value === '12') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '63');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '63');
                     } elseif ($value === '13') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '67');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '67');
                     } elseif ($value === '14') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '68');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '68');
                     } elseif ($value === '15') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '71');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '71');
                     } elseif ($value === '16') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '72');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '72');
                     } elseif ($value === '17') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '73');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '73');
                     } elseif ($value === '18') {
-                        $builder->whereJsonContains('reportesverificacion.anomalia', '74');
+                        $builder->whereJsonContains('reportesverificacions.anomalia', '74');
                     }
                 }),
         ];
     }
     public function builder(): Builder
     {
-        return reportesverificacion::query()->where('reportesverificacions.estado', [5]);
+        return reportesverificacion::query()->where('reportesverificacions.estado', 5);
     }
 
 
