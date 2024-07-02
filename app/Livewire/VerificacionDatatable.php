@@ -219,7 +219,6 @@ class VerificacionDatatable extends DataTableComponent
                 ->collapseAlways(),
             Column::make("Comercio", "ComercioReporte.nombre")
                 ->collapseAlways(),
-            Column::make('Ciclos', 'ciclos.ciclo'),
             Column::make("Estado", "estado")
                 ->format(
                     fn ($value, $row, Column $column) => match ($value) {
