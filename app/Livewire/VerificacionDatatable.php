@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Livewire;
+
 use App\Exports\ReportVerificacion;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,8 +20,8 @@ class VerificacionDatatable extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id')->setTableRowUrl(function($row) {
-            return route('verificacion.show',['verificacion' => $row]);
+        $this->setPrimaryKey('id')->setTableRowUrl(function ($row) {
+            return route('verificacion.show', ['verificacion' => $row]);
         });
         $this->setColumnSelectStatus(false);
         $this->setConfigurableAreas([
@@ -65,7 +66,7 @@ class VerificacionDatatable extends DataTableComponent
                         $builder->where('reportesverificacions.estado', '7');
                     }
                 }),
-                SelectFilter::make('Ciclos')
+            SelectFilter::make('Ciclos')
                 ->options([
                     '' => 'All',
                     '1' => '1001',
@@ -108,7 +109,7 @@ class VerificacionDatatable extends DataTableComponent
                         $builder->where('ciclos.ciclo', '1012');
                     }
                 }),
-                SelectFilter::make('Confirmados')
+            SelectFilter::make('Confirmados')
                 ->options([
                     '' => 'All',
                     '1' => 'Confirmados',
@@ -187,18 +188,18 @@ class VerificacionDatatable extends DataTableComponent
     public function columns(): array
     {
         return [
-            column::make("id","id")
-            ->setColumnLabelStatusDisabled(),
+            column::make("id", "id")
+                ->setColumnLabelStatusDisabled(),
             Column::make("Nombres", "personal.nombres")
-            ->collapseAlways(),
+                ->collapseAlways(),
             Column::make("Apellidos", "personal.apellidos")
-            ->collapseAlways(),
+                ->collapseAlways(),
             Column::make("Contrato", "contrato")
                 ->collapseOnMobile()
                 ->searchable(),
             Column::make("Lectura", "lectura")
                 ->collapseOnMobile(),
-                Column::make("Medidor", "medidor")
+            Column::make("Medidor", "medidor")
                 ->collapseOnMobile()
                 ->searchable(),
             Column::make("Anomalia", "anomalia")
@@ -218,6 +219,7 @@ class VerificacionDatatable extends DataTableComponent
                 ->collapseAlways(),
             Column::make("Comercio", "ComercioReporte.nombre")
                 ->collapseAlways(),
+            Column::make('Ciclos', 'ciclos.ciclo'),
             Column::make("Estado", "estado")
                 ->format(
                     fn ($value, $row, Column $column) => match ($value) {
