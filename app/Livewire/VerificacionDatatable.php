@@ -109,17 +109,7 @@ class VerificacionDatatable extends DataTableComponent
                         $builder->where('ciclos.ciclo', '1012');
                     }
                 }),
-            SelectFilter::make('Confirmados')
-                ->options([
-                    '' => 'All',
-                    '1' => 'Confirmados',
-                ])
-                ->filter(function (Builder $builder, $value) {
-                    if ($value === '1') {
-                        $builder->where('confirmado_anomalia', '1');
-                    }
-                }),
-
+       
             SelectFilter::make('Anomalias')
                 ->options([
                     '' => 'All',
