@@ -129,7 +129,7 @@ class VerificacionDatatable extends DataTableComponent
     public function builder(): Builder
     {
         return reportesverificacion::query()->where('reportesverificacions.estado', 5)
-        ->with(['personal', 'ComercioReporte', 'CiclosSutrtigas']);
+            ->with(['personal', 'ComercioReporte', 'CiclosSutrtigas']);
     }
 
 
@@ -137,6 +137,7 @@ class VerificacionDatatable extends DataTableComponent
     {
         return [
             column::make("id", "id")
+                ->collapseAlways()
                 ->setColumnLabelStatusDisabled(),
             Column::make("Nombres", "personal.nombres")
                 ->collapseAlways(),
@@ -150,6 +151,7 @@ class VerificacionDatatable extends DataTableComponent
             Column::make("Medidor", "medidor")
                 ->collapseOnMobile()
                 ->searchable(),
+            Column::make('Ciclos', "CiclosSutrtigas.ciclos"),
             Column::make("Anomalia", "anomalia")
                 ->format(function ($value) {
                     $ids = json_decode($value); // Decodifica el JSON
