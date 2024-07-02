@@ -285,20 +285,6 @@
                                     <div class="alert alert-warning d-none" role="alert" id="progressBarObservacion">
                                         <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
                                     </div>
-                                    <hr class="my-2">
-                                    <div class=" d-flex justify-content-between">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                                name="revisado" value="1" required>
-                                            <label class="form-check-label" for="inlineCheckbox1">Revisado</label>
-                                        </div>
-                                        {{-- <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="confirmado_anomalia"
-                                                name="confirmado_anomalia" value="1" >
-                                            <label class="form-check-label" for="confirmado_anomalia">confirmado anomalia</label>
-                                        </div> --}}
-                                    </div>
-
                             </div>
                         </div>
                     </div>
@@ -382,6 +368,11 @@
                                                 <input class="form-check-input" type="checkbox" id="noencontrado"
                                                     name="no_encontrado" value="1">
                                                 <label class="form-check-label" for="noencontrado">No Encontrado</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    name="revisado" value="1" required>
+                                                <label class="form-check-label" for="inlineCheckbox1">Revisado</label>
                                             </div>
                                         </div>
                                     </div>
