@@ -377,7 +377,7 @@
                                     <textarea id="editor" rows="5" name="observaciones" class="form-control mb-3"
                                         placeholder="Escriba Sus Observaciones"></textarea>
                                 </div>
-                                <div class="alert alert-warning d-none" role="alert" id="progressBarObservacion">
+                                <div class="alert alert-success d-none" role="alert" id="progressBarObservacion">
                                     <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
                                 </div>
                                 <hr class="my-2">
