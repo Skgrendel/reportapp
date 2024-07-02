@@ -109,49 +109,6 @@ class RevisadosDatatable extends DataTableComponent
                         $builder->whereJsonContains('reportes.anomalia', '74');
                     }
                 }),
-            SelectFilter::make('Ciclos')
-                ->options([
-                    '' => 'All',
-                    '1' => '1001',
-                    '2' => '1002',
-                    '3' => '1003',
-                    '4' => '1004',
-                    '5' => '1005',
-                    '6' => '1006',
-                    '7' => '1007',
-                    '8' => '1008',
-                    '9' => '1009',
-                    '10' => '1010',
-                    '11' => '1011',
-                    '12' => '1012',
-                ])
-                ->filter(function (Builder $builder, $value) {
-                    if ($value === '1') {
-                        $builder->where('ciclos.ciclo', '1001');
-                    } elseif ($value === '2') {
-                        $builder->where('ciclos.ciclo', '1002');
-                    } elseif ($value === '3') {
-                        $builder->where('ciclos.ciclo', '1003');
-                    } elseif ($value === '4') {
-                        $builder->where('ciclos.ciclo', '1004');
-                    } elseif ($value === '5') {
-                        $builder->where('ciclos.ciclo', '1005');
-                    } elseif ($value === '6') {
-                        $builder->where('ciclos.ciclo', '1006');
-                    } elseif ($value === '7') {
-                        $builder->where('ciclos.ciclo', '1007');
-                    } elseif ($value === '8') {
-                        $builder->where('ciclos.ciclo', '1008');
-                    } elseif ($value === '9') {
-                        $builder->where('ciclos.ciclo', '1009');
-                    } elseif ($value === '10') {
-                        $builder->where('ciclos.ciclo', '1010');
-                    } elseif ($value === '11') {
-                        $builder->where('ciclos.ciclo', '1011');
-                    } elseif ($value === '12') {
-                        $builder->where('ciclos.ciclo', '1012');
-                    }
-                }),
             SelectFilter::make('Confirmados')
                 ->options([
                     '' => 'All',
