@@ -8,6 +8,7 @@ use App\Models\vs_anomalias;
 use App\Models\vs_estado;
 use App\Models\vs_comercios;
 use App\Models\vs_imposibilidad;
+use App\Services\DataGisServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,9 +17,11 @@ use PhpOffice\PhpWord\TemplateProcessor;
 
 class ReportesverificacionController extends Controller
 {
+    private  $info;
+
     public function __construct()
     {
-
+        $this->info = new DataGisServices();
     }
     /**
      * Display a listing of the resource.
@@ -131,13 +134,15 @@ class ReportesverificacionController extends Controller
      * Display the specified resource.
      */
     public function show($id)
+
     {
+        $gis = $this->info->DataGis($id);
         $reporte = reportesverificacion::find($id);
         $contrato = $reporte->contrato;
         $validate = direcciones::where('contrato', $contrato)->first();
         $anomaliasIds = json_decode($reporte->anomalia);
         $anomalias = vs_anomalias::whereIn('id', $anomaliasIds)->get();
-        return view('verificacion.show', compact('reporte', 'anomalias', 'validate'));
+        return view('verificacion.show', compact('reporte', 'anomalias', 'validate','gis'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -258,7 +263,7 @@ class ReportesverificacionController extends Controller
         }
         $reportes->update($report);
 
-        return redirect()->route('verificacion.create')->with('success','Registro Actualizado Con Exito');
+        return redirect()->route('verificacion.create')->with('success', 'Registro Actualizado Con Exito');
     }
     /**
      * Remove the specified resource from storage.

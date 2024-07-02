@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Exports\ReportVerificacion;
+use App\Models\direcciones;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Filters\SelectFilter;
@@ -127,7 +128,8 @@ class VerificacionDatatable extends DataTableComponent
     }
     public function builder(): Builder
     {
-        return reportesverificacion::query()->where('reportesverificacions.estado', 5);
+        return reportesverificacion::query()->where('reportesverificacions.estado', 5)
+        ->with(['personal', 'ComercioReporte', 'CiclosSutrtigas']);
     }
 
 

@@ -70,9 +70,9 @@ class reportesverificacion extends Model
         return $this->hasOne(personals::class,'id','personal_id');
     }
 
-    public function ciclos()
+    public function CiclosSutrtigas()
     {
-        return $this->belongsTo(direcciones::class, 'contrato');
+        return $this->hasOne(direcciones::class, 'contrato', 'contrato');
     }
 
     public function EstadoReporte()
