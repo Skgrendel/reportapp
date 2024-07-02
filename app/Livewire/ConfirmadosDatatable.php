@@ -194,9 +194,9 @@ class ConfirmadosDatatable extends DataTableComponent
                 ->collapseAlways(),
             Column::make('Ciclos', 'ciclos.ciclo')
                 ->searchable(),
-            Column::make("Estado", "revisado")
+            Column::make("Estado", "confirmado_anomalia")
                 ->format(
-                    fn ($value) => $value == 1 ? '<span class="badge badge-success">Auditado</span>' : 'No Revisado'
+                    fn ($value) => $value == 1 ? '<span class="badge badge-success">Confirmado</span>' : 'No Revisado'
                 )
                 ->html()
                 ->collapseOnMobile(),

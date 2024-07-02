@@ -88,7 +88,7 @@
                             <a href="{{ route('auditorias.create') }}">Revisados</a>
                         </li>
                         <li class="{{ Route::currentRouteName() == 'confirmadas' ? 'active' : '' }}">
-                            <a href="{{ route('confirmadas') }}">Anomalias Ok</a>
+                            <a href="{{ route('confirmadas') }}">Confirmados</a>
                         </li>
                     </ul>
                 </li>
