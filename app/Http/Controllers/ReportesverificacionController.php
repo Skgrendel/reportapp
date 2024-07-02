@@ -136,7 +136,7 @@ class ReportesverificacionController extends Controller
     public function show($id)
 
     {
-        $gis = $this->info->DataGis($id);
+        $gis = $this->info->DataGisVerificacion($id);
         $reporte = reportesverificacion::find($id);
         $contrato = $reporte->contrato;
         $validate = direcciones::where('contrato', $contrato)->first();
