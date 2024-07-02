@@ -151,7 +151,7 @@ class VerificacionDatatable extends DataTableComponent
             Column::make("Medidor", "medidor")
                 ->collapseOnMobile()
                 ->searchable(),
-            Column::make('Ciclos', "CiclosSutrtigas.ciclos"),
+           
             Column::make("Anomalia", "anomalia")
                 ->format(function ($value) {
                     $ids = json_decode($value); // Decodifica el JSON
