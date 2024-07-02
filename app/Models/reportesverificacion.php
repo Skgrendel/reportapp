@@ -70,7 +70,7 @@ class reportesverificacion extends Model
         return $this->hasOne(personals::class,'id','personal_id');
     }
 
-    public function CiclosSutrtigas()
+    public function ciclo()
     {
         return $this->hasOne(direcciones::class, 'contrato', 'contrato');
     }
