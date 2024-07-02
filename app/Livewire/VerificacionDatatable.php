@@ -181,7 +181,7 @@ class VerificacionDatatable extends DataTableComponent
     }
     public function builder(): Builder
     {
-        return reportesverificacion::query()->whereIn('reportesverificacions.estado', [5]);
+        return reportesverificacion::query()->where('reportesverificacions.estado', [5]);
     }
 
 
