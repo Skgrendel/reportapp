@@ -268,8 +268,11 @@ class ReportesverificacionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(reportesverificacion $reportes)
+    public function destroy(Request $request, string $id)
     {
-        //
+       $data = reportesverificacion::find($id);
+       $data->revisado = $request->input('revisado');
+       $data->update();
+       return redirect()->route('verificacion.create')->with('success', 'Registro Actualizado Con Exito');
     }
 }

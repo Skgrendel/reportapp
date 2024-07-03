@@ -173,7 +173,7 @@
     </div>
     <div class="widget-content widget-content-area mt-2 ">
         <div class="row">
-            {{-- <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
                 <div class="card style-4" style="width: 100%; height: 100%;">
                     <div class="card-body pt-3">
                         <div class="m-o-dropdown-list">
@@ -190,33 +190,15 @@
                             <hr class="my-2">
                         </div>
                         <div class="row">
-                            <form action="{{ route('coordinador.update', $reporte->id) }}" method="post" id="observacion"
+                            <form action="{{ route('verificacion.destroy', $reporte->id) }}" method="post" id="observacion"
                                 enctype="multipart/form-data">
-                                @method('PUT')
+                                @method('DELETE')
                                 @csrf
-                                <textarea id="editor" rows="5" name="observaciones" class="form-control mb-3"
-                                    placeholder="Escriba Sus Observaciones"></textarea>
-                                @if ($reporte->estado != '6')
-                                    <div class="mb-2">
-                                        <div class="form-check form-check-success form-check-inline">
-                                            <label class="form-check-label" for="inlineRadio1">
-                                                <span class="badge badge-success">Revisado</span>
-                                                <input class="form-check-input" type="radio" name="estado"
-                                                    id="inlineRadio1" value="6">
-                                            </label>
-                                        </div>
-                                        <div class="form-check form-check-danger form-check-inline">
-                                            <label class="form-check-label" for="inlineRadio2">
-                                                <span class="badge badge-danger">Rechazado</span>
-                                                <input class="form-check-input" type="radio" name="estado"
-                                                    id="inlineRadio2" value="7">
-                                            </label>
-                                        </div>
-                                        @if ($errors->has('estado'))
-                                            <span class="text-danger">{{ $errors->first('estado') }}</span>
-                                        @endif
-                                    </div>
-                                @endif
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                        name="revisado" value="1" required>
+                                    <label class="form-check-label" for="inlineCheckbox1">Revisado</label>
+                                </div>
                                 <div class="alert alert-warning d-none" role="alert" id="progressBarObservacion">
                                     <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
                                 </div>
@@ -229,7 +211,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
                 <div class="card style-4" style="width: 100%; height: 100%;">
                     <div class="card-body pt-3">
