@@ -202,14 +202,14 @@
                                     @method('DELETE')
                                     @csrf
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                        <input class="form-check-input" type="checkbox" id="NoEncontrado"
                                             name="revisado" value="1">
-                                        <label class="form-check-label" for="inlineCheckbox1">No Encontrado</label>
+                                        <label class="form-check-label" for="NoEncontrado">No Encontrado</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                        <input class="form-check-input" type="checkbox" id="Encontrado"
                                             name="revisado" value="0">
-                                        <label class="form-check-label" for="inlineCheckbox1">Encontrado</label>
+                                        <label class="form-check-label" for="Encontrado">Encontrado</label>
                                     </div>
                                     <div class="alert alert-warning d-none" role="alert" id="progressBarObservacion">
                                         <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
