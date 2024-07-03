@@ -142,7 +142,7 @@ class ReportesverificacionController extends Controller
         $validate = direcciones::where('contrato', $contrato)->first();
         $anomaliasIds = json_decode($reporte->anomalia);
         $anomalias = vs_anomalias::whereIn('id', $anomaliasIds)->get();
-        return view('verificacion.show', compact('reporte', 'anomalias', 'validate','gis'));
+        return view('verificacion.show', compact('reporte', 'anomalias', 'validate', 'gis'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -270,9 +270,9 @@ class ReportesverificacionController extends Controller
      */
     public function destroy(Request $request, string $id)
     {
-       $data = reportesverificacion::find($id);
-       $data->revisado = $request->input('revisado');
-       $data->update();
-       return redirect()->route('verificacion.create')->with('success', 'Registro Actualizado Con Exito');
+        $data = reportesverificacion::find($id);
+        $data->revisado = $request->input('revisado');
+        $data->update();
+        return redirect()->route('verificacion.create')->with('success', 'Registro Actualizado Con Exito');
     }
 }
