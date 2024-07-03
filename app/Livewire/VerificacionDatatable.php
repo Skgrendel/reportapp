@@ -202,7 +202,7 @@ class VerificacionDatatable extends DataTableComponent
             Column::make("Estado", "revisado")
                 ->format(
                     fn ($value, $row, Column $column) => match ($value) {
-                        1 => '<span class="badge badge-succes">Verificado</span>',
+                        1 => '<span class="badge badge-success">Verificado</span>',
                         default => '<span class="badge badge-danger">No Verificado</span>'
                     }
                 )
