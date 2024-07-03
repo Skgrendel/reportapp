@@ -490,7 +490,7 @@
                             class="withDescriptionGlightbox glightbox-content"
                             data-glightbox="title: Contrato y medidor; description: Contrato #:{{ $reporte->contrato }} - Medidor #: {{ $gis['info']['medidor'] ?? $reporte->medidor }} - Lectura: {{ $reporte->lectura }};">
                             <img src="/imagen/{{ $reporte->{'foto' . $i} }}" alt="image" class="img-fluid"
-                                style="width:350px; height:250px; object-fit: cover;" />
+                                style="width:450px; height:250px; object-fit: cover;" />
                         </a>
                     </div>
                 @endif
