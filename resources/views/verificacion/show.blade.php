@@ -95,6 +95,9 @@
                                 </g>
                             </svg>
                         </a>
+                        @if ($reporte->verificado == 1)
+                            <span class="badge bg-success">Este reporte ya se encuentra verificado</span>
+                        @endif
                     </div>
                 </div>
             </div>
