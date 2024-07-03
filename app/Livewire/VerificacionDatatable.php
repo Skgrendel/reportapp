@@ -199,10 +199,11 @@ class VerificacionDatatable extends DataTableComponent
                 ->collapseAlways(),
             Column::make("Comercio", "ComercioReporte.nombre")
                 ->collapseAlways(),
-            Column::make("Estado", "estado")
+            Column::make("Estado", "verificado")
                 ->format(
                     fn ($value, $row, Column $column) => match ($value) {
-                        '5' => '<span class="badge badge-warning">Verificado</span>',
+                        '1' => '<span class="badge badge-succes">Verificado</span>',
+                        default => '<span class="badge badge-danger">No Verificado</span>'
                     }
                 )
                 ->html()
