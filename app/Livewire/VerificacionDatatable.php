@@ -11,6 +11,7 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\vs_anomalias;
 use App\Models\reportesverificacion;
+use Filament\Forms\Components\Select;
 
 class VerificacionDatatable extends DataTableComponent
 {
@@ -54,6 +55,23 @@ class VerificacionDatatable extends DataTableComponent
     public function filters(): array
     {
         return [
+            SelectFilter::make('Estado')
+            ->options([
+                ''=>'All',
+                '1'=>'Sin Auditar',
+                '2'=>'Encontrados',
+                '3'=>'No Encontrados',
+            ])
+            ->filter(function (Builder $builder, $value) {
+                if ($value === '1') {
+                    $builder->where('reportesverificacions.revisado', null);
+                } elseif ($value === '2') {
+                    $builder->where('reportesverificacions.revisado', 0);
+                } elseif ($value === '3') {
+                    $builder->where('reportesverificacions.revisado', 1);
+                }
+            }),
+
             SelectFilter::make('Ciclos')
                 ->options([
                     '' => 'All',
