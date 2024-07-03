@@ -194,7 +194,7 @@ class VerificacionDatatable extends DataTableComponent
                     }
                     return implode(', ', $nombres); // Devuelve los nombres como una cadena separada por comas
                 })
-                ->collapseOnMobile(),
+                ->collapseAlways(),
             Column::make("Direccion", "direccion")
                 ->collapseAlways(),
             Column::make("Comercio", "ComercioReporte.nombre")
@@ -202,8 +202,8 @@ class VerificacionDatatable extends DataTableComponent
             Column::make("Estado", "revisado")
                 ->format(
                     fn ($value, $row, Column $column) => match ($value) {
-                        1 => '<span class="badge badge-success">Verificado</span>',
-                        default => '<span class="badge badge-danger">No Verificado</span>'
+                        1 => '<span class="badge badge-danger">No Encontrado</span>',
+                        default => '<span class="badge badge-success">Encontrado</span>'
                     }
                 )
                 ->html()
