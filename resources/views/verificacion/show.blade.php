@@ -204,7 +204,7 @@
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
                                             name="revisado" value="1" required>
-                                        <label class="form-check-label" for="inlineCheckbox1">Revisado</label>
+                                        <label class="form-check-label" for="inlineCheckbox1">No Encontrado</label>
                                     </div>
                                     <div class="alert alert-warning d-none" role="alert" id="progressBarObservacion">
                                         <span class="text-sm">Guardando Cambios Porfavor Espere.....</span>
