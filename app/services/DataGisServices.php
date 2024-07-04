@@ -220,7 +220,9 @@ class DataGisServices
                     'latitude' => $lat,
                     'longitude' => $lng
                 ],
-                'link' => 'https://www.google.com/maps/place/' . $lat . ',' . $lng
+                'link' => [
+                    'src'=> 'https://www.google.com/maps/place/' . $lat . ',' . $lng
+                ]
 
             ];
         } catch (\Exception $e) {
