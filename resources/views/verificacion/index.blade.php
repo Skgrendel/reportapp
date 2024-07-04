@@ -34,31 +34,31 @@
                                 class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buscar</button>
 
                         </div>
-                        <div class="mt-2 hidden" id="ubicacion">
-                            <div class="flex justify-between items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+                        <div class="mt-2 hidden " id="ubicacion">
+                            <div class="p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                                 role="alert">
                                 <div class="flex items-center">
-                                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                                    </svg>
                                     <span class="sr-only">Info</span>
-                                    <div>
-                                        <ul>
-                                            <li>
-                                                Datos Usuario: <p id="usuario"></p>
-                                            </li>
-                                            <li>
-                                                Direccion: <p id="direccion"></p>
-                                            </li>
-                                        </ul>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                                        <div class="flex flex-col">
+                                            <p>Datos Usuario: <br><strong>
+                                                    <span id="usuario"></span></p></strong>
+                                            <p>Datos medidor: <br><strong><span id="medidorgis"></span></strong></p>
+                                            <p>Categoria: <br><strong><span id="categoria"></span></strong></p>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <p>Direccion: <br><strong><span id="direccion"></span></strong></p>
+                                            <p>Barrio: <br><strong><span id="barrio"></span></strong></p>
+                                            <p>Descripcion: <br><strong><span id="descripcion"></span></strong></p>
+                                        </div>
                                     </div>
                                 </div>
-                                <a type="button" id="link" target="_blank"
-                                    class="text-white bg-green-800 hover:bg-green-500/90 focus:ring-4 focus:outline-none focus:ring-green-800/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
-                                    Ver en Maps
-                                </a>
+                                <div class="flex justify-end mt-4">
+                                    <a type="button" id="link" target="_blank"
+                                        class="text-white bg-green-800 hover:bg-green-500/90 focus:ring-4 focus:outline-none focus:ring-green-800/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
+                                        Ver en Maps
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class=" mb-3">
@@ -349,13 +349,17 @@
                         url: '/funtion/busqueda/' + id,
                         type: 'GET',
                         success: function(response) {
-                            let usuarioCompleto = response.contrato.usuario + " " + response.contrato.apellido;
+                            let usuarioCompleto = response.gis.usuario + " " + response.gis.apellido;
                             // Aquí puedes manejar la respuesta del servidor
-                            console.log(response);
+                            // console.log(response);
                             $('#ubicacion').removeClass('hidden');
-                            $('#medidor').val(response.contrato.medidor);
+                            $('#medidor').val(response.medidor);
                             $('#Contrato').attr('readonly', true);
-                            $('#direccion').text(response.contrato.direccion);
+                            $('#direccion').text(response.gis.direccion);
+                            $('#medidorgis').text(response.gis.medidor);
+                            $('#descripcion').text(response.gis.descripcion);
+                            $('#barrio').text(response.gis.barrio);
+                            $('#categoria').text(response.gis.categoria);
                             $('#usuario').text(usuarioCompleto);
                             $('#link').attr('href', 'https://www.google.com/maps/place/' + response.src);
                         },
