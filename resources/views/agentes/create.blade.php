@@ -35,9 +35,9 @@
 
                         </div>
                         <div class="mt-2 hidden" id="ubicacion">
-                            <div class="flex justify-between items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
+                            <div class="p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                                 role="alert">
-                                <div class="flex items-center w-full">
+                                <div class="flex items-center">
                                     <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         <path
@@ -45,24 +45,27 @@
                                     </svg>
                                     <span class="sr-only">Info</span>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                                        <div>
-                                            <div>Datos Usuario: <span id="usuario"></span></div>
-                                            <div>Datos medidor: <span id="medidor"></span></div>
-                                            <div>Categoria: <span id="categoria"></span></div>
+                                        <div class="flex flex-col">
+                                            <span>Datos Usuario: <span id="usuario"></span></span>
+                                            <span>Datos medidor: <span id="medidor"></span></span>
+                                            <span>Categoria: <span id="categoria"></span></span>
                                         </div>
-                                        <div>
-                                            <div>Direccion: <span id="direccion"></span></div>
-                                            <div>Barrio: <span id="barrio"></span></div>
-                                            <div>Descripcion: <span id="descripcion"></span></div>
+                                        <div class="flex flex-col">
+                                            <span>Direccion: <span id="direccion"></span></span>
+                                            <span>Barrio: <span id="barrio"></span></span>
+                                            <span>Descripcion: <span id="descripcion"></span></span>
                                         </div>
                                     </div>
                                 </div>
-                                <a type="button" id="link" target="_blank"
-                                    class="text-white bg-green-800 hover:bg-green-500/90 focus:ring-4 focus:outline-none focus:ring-green-800/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
-                                    Ver en Maps
-                                </a>
+                                <div class="flex justify-end mt-4">
+                                    <a type="button" id="link" target="_blank"
+                                        class="text-white bg-green-800 hover:bg-green-500/90 focus:ring-4 focus:outline-none focus:ring-green-800/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
+                                        Ver en Maps
+                                    </a>
+                                </div>
                             </div>
                         </div>
+
 
 
                         <div class=" mb-3">
