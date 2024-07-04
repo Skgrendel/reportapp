@@ -104,7 +104,7 @@ class DataGisServices
                 return [
                     'error' => $data['error']['message']
                 ];
-            }
+            } 
 
 
             if (empty($data['features'])) {
