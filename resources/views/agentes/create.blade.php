@@ -37,23 +37,27 @@
                         <div class="mt-2 hidden" id="ubicacion">
                             <div class="flex justify-between items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                                 role="alert">
-                                <div class="flex items-center">
+                                <div class="flex items-center w-full">
                                     <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         <path
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                     </svg>
                                     <span class="sr-only">Info</span>
-                                    <div class="grid grid-cols-2 grid-rows-3 gap-4">
+                                    <div class="grid grid-cols-2 gap-4 w-full">
                                         <div class="col-span-2">
-                                            Datos Usuario: <span id="usuario"></span>
-                                            Datos medidor: <span id="medidor"></span>
-                                            Categoria: <span id="categoria"></span>
+                                            <div class="flex">
+                                                <div class="mr-4">Datos Usuario: <span id="usuario"></span></div>
+                                                <div class="mr-4">Datos medidor: <span id="medidor"></span></div>
+                                                <div>Categoria: <span id="categoria"></span></div>
+                                            </div>
                                         </div>
                                         <div class="col-span-2">
-                                            Direccion: <span id="direccion"></span>
-                                            Barrio: <span id="barrio"></span>
-                                            Descripcion: <span id="descripcion"></span>
+                                            <div class="flex">
+                                                <div class="mr-4">Direccion: <span id="direccion"></span></div>
+                                                <div class="mr-4">Barrio: <span id="barrio"></span></div>
+                                                <div>Descripcion: <span id="descripcion"></span></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -63,6 +67,7 @@
                                 </a>
                             </div>
                         </div>
+
                         <div class=" mb-3">
                             <x-label for='medidor' value='Numero de medidor' class="mb-2" />
                             <input type="text" required
