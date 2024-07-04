@@ -21,7 +21,7 @@ class DataGisServices
 
             if (!$surtigas) {
                 return [
-                    'error' => 'No se encontró la dirección asociada al contrato proporcionado.'
+                    'error' => 'No se encontró informacion asociada al contrato proporcionado.'
                 ];
             }
 
@@ -42,13 +42,13 @@ class DataGisServices
             // Decodificar la respuesta JSON
             $data = $urlConsulta->json();
 
-            if ($data['error']) {
+            if (isset($data['error'])) {
                 return [
                     'error' => $data['error']['message']
                 ];
             }
 
-            if (empty($data['features'])) {
+            if (!$data || !isset($data['features'][0])) {
                 return [
                     'error' => 'No se encontraron datos para el contrato proporcionado.'
                 ];
@@ -56,7 +56,6 @@ class DataGisServices
 
             $attributes = $data['features'][0]['attributes'];
             $geometry = $data['features'][0]['geometry'];
-          // dd($geometry);
 
             return [
                 'info' => [
@@ -71,6 +70,9 @@ class DataGisServices
                     'contrato' => $attributes['PRODUCT_ID'],
                     'medidor' => $attributes['ELEMENTOMEDICION']
                 ],
+                'geometry_x' => $geometry['x'],
+                'geometry_y' => $geometry['y']
+
             ];
         } catch (\Exception $e) {
             return [
@@ -78,9 +80,11 @@ class DataGisServices
             ];
         }
     }
+
     public function DataGisVerificacion(string $id)
     {
         try {
+
             $token = env('GIS_API_TOKEN');
             $data = reportesverificacion::find($id);
             $surtigas = direcciones::where('contrato', $data->contrato)->first();
@@ -109,20 +113,20 @@ class DataGisServices
             // Decodificar la respuesta JSON
             $data = $urlConsulta->json();
 
-            if ($data['error']) {
+            if (isset($data['error'])) {
                 return [
                     'error' => $data['error']['message']
                 ];
             }
 
-
-            if (empty($data['features'])) {
+            if (!$data || !isset($data['features'][0])) {
                 return [
                     'error' => 'No se encontraron datos para el contrato proporcionado.'
                 ];
             }
 
             $attributes = $data['features'][0]['attributes'];
+            $geometry = $data['features'][0]['geometry'];
             return [
                 'info' => [
                     'direccion' => $attributes['DIRECCION'],
@@ -136,6 +140,8 @@ class DataGisServices
                     'contrato' => $attributes['SUBSCRIPTION_ID'],
                     'medidor' => $attributes['ELEMENTOMEDICION'],
                 ],
+                'geometry_x' => $geometry['x'],
+                'geometry_y' => $geometry['y']
             ];
         } catch (\Exception $e) {
             return [
