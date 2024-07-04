@@ -41,6 +41,12 @@ class DataGisServices
             // Decodificar la respuesta JSON
             $data = $urlConsulta->json();
 
+            if ($data['error']) {
+                return [
+                    'error' => $data['error']['message']
+                ];
+            }
+
             if (empty($data['features'])) {
                 return [
                     'error' => 'No se encontraron datos para el contrato proporcionado.'
@@ -48,6 +54,8 @@ class DataGisServices
             }
 
             $attributes = $data['features'][0]['attributes'];
+            $geometry = $data['features'][1]['geometry'];
+           // dd($geometry);
 
             return [
                 'info' => [
@@ -104,7 +112,7 @@ class DataGisServices
                 return [
                     'error' => $data['error']['message']
                 ];
-            } 
+            }
 
 
             if (empty($data['features'])) {
@@ -114,8 +122,6 @@ class DataGisServices
             }
 
             $attributes = $data['features'][0]['attributes'];
-            $geometry = $data['features'][1]['geometry'];
-            dd($geometry);
             return [
                 'info' => [
                     'direccion' => $attributes['DIRECCION'],
