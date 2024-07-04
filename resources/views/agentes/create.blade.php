@@ -359,7 +359,7 @@
                         success: function(response) {
                             let usuarioCompleto = response.gis.usuario + " " + response.gis.apellido;
                             // Aquí puedes manejar la respuesta del servidor
-                             console.log(response.medidor);
+                            // console.log(response.medidor);
                             $('#ubicacion').removeClass('hidden');
                             $('#medidor').val(response.medidor);
                             $('#Contrato').attr('readonly', true);
