@@ -45,7 +45,14 @@
                                     </svg>
                                     <span class="sr-only">Info</span>
                                     <div>
-                                        <p id="direccion"></p>
+                                        <ul>
+                                            <li>
+                                                Datos Usuario: <p id="usuario"></p>
+                                            </li>
+                                            <li>
+                                                <p id="direccion"></p>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                                 <a type="button" id="link" target="_blank"
@@ -351,12 +358,15 @@
                         url: '/funtion/busqueda/' + id,
                         type: 'GET',
                         success: function(response) {
+
+                            let usuarioCompleto = response.contrato.usuario + " " + response.contrato.apellido;
                             // Aquí puedes manejar la respuesta del servidor
                             console.log(response);
                             $('#ubicacion').removeClass('hidden');
                             $('#medidor').val(response.contrato.medidor);
                             $('#Contrato').attr('readonly', true);
                             $('#direccion').text(response.contrato.direccion);
+                            $('#usuario').text(usuarioCompleto);
                             $('#link').attr('href', 'https://www.google.com/maps/place/' + response.src);
                         },
                         error: function(error) {
