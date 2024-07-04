@@ -42,10 +42,51 @@
                                                     value="">
                                                 <input type="text" hidden name="personal_id"
                                                     value="{{ Auth::user()->personal->id }}">
+                                                <div class="mt-2 hidden " id="ubicacion">
+                                                    <div class="p-4 mb-4 text-sm text-black-800 border border-black-300 rounded-lg"
+                                                        role="alert">
+                                                        <div class="flex items-center">
+                                                            <span class="sr-only">Info</span>
+                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                                                                <div class="flex flex-col">
+                                                                    <p>Datos Usuario: <br><strong>
+                                                                            <span
+                                                                                id="usuario">{{ $gis['info']['cliente'] ?? 'No hay Datos' }}</span>
+                                                                    </p></strong>
+                                                                    <p>Datos medidor: <br><strong><span
+                                                                                id="medidorgis">{{ $gis['info']['medidor'] ?? 'No hay Datos' }}</span></strong>
+                                                                    </p>
+                                                                    <p>Categoria: <br><strong><span
+                                                                                id="categoria">{{ $gis['info']['categoria'] ?? 'No hay Datos' }}</span></strong>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="flex flex-col">
+                                                                    <p>Direccion: <br><strong><span
+                                                                                id="direccion">{{ $gis['info']['direccion'] ?? 'No hay Datos' }}</span></strong>
+                                                                    </p>
+                                                                    <p>Barrio: <br><strong><span
+                                                                                id="barrio"></span>{{ $gis['info']['barrio'] ?? 'No hay Datos' }}</strong>
+                                                                    </p>
+                                                                    <p>Descripcion: <br><strong><span
+                                                                                id="descripcion">{{ $gis['info']['descripcion'] ?? 'No hay Datos' }}</span></strong>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex justify-end mt-4">
+                                                            <a type="button" id="link" target="_blank"
+                                                                href="{{ $gis['link'] ?? '' }}"
+                                                                class="text-white bg-green-800 hover:bg-green-500/90 focus:ring-4 focus:outline-none focus:ring-green-800/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
+                                                                Ver en Maps
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 @if ($reporte->observaciones)
-                                                <x-label for='observacion' value='Observaciones del Coordinador' class="mb-2" />
-                                                <textarea id="observacion" rows="4" disabled
-                                                class="block mb-4  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">{{$reporte->observaciones}}</textarea>
+                                                    <x-label for='observacion' value='Observaciones del Coordinador'
+                                                        class="mb-2" />
+                                                    <textarea id="observacion" rows="4" disabled
+                                                        class="block mb-4  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">{{ $reporte->observaciones }}</textarea>
                                                 @endif
                                                 <div class=" mb-3">
                                                     <x-label for='contrato' value='Numero de contrato' class="mb-2" />
@@ -53,7 +94,7 @@
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         name="contrato" id="contrato"
                                                         placeholder="Ingrese su Numero de Contrato"
-                                                        value="{{ $reporte->contrato }}" >
+                                                        value="{{ $reporte->contrato }}">
                                                     <x-input-error for="contrato" />
                                                 </div>
                                                 <div class=" mb-3">
@@ -62,41 +103,50 @@
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         name="medidor" id="medidor"
                                                         placeholder="Ingrese su Numero de Medidor"
-                                                        value="{{ $reporte->medidor }}" >
+                                                        value="{{ $reporte->medidor }}">
                                                     <x-input-error for="medidor" />
                                                 </div>
                                                 <div class=" mb-3">
                                                     <div class="flex items-center mt-2 ">
-                                                        <input id="medidor_noconcuerda" type="checkbox" value=""
+                                                        <input id="medidor_noconcuerda" type="checkbox"
+                                                            value=""
                                                             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                                         <label for="medidor_noconcuerda"
-                                                            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 mr-2">Medidor No
+                                                            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 mr-2">Medidor
+                                                            No
                                                             Concuerda</label>
                                                         <input id="cambio" type="checkbox" value=""
                                                             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                                         <label for="cambio"
-                                                            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cambio de
+                                                            class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cambio
+                                                            de
                                                             Medidor</label>
                                                     </div>
                                                     <div id="medidor_anomalia" class="mt-2 hidden">
-                                                        <x-label for='medidor2' value='Numero de medidor que No Concuerda' class="mb-2" />
+                                                        <x-label for='medidor2'
+                                                            value='Numero de medidor que No Concuerda'
+                                                            class="mb-2" />
                                                         <input type="text"
                                                             class="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 "
                                                             name="medidor_anomalia" id="medidor_anomalia"
-                                                            placeholder="Ingrese su Numero de Medidor" value="{{ $reporte->medidor_anomalia}}">
+                                                            placeholder="Ingrese su Numero de Medidor"
+                                                            value="{{ $reporte->medidor_anomalia }}">
                                                         <x-input-error for="medidor_anomalia" />
                                                     </div>
                                                     <div id="medidor_cambio" class="mt-2 hidden">
-                                                        <x-label for='medidor_cambio' value='Motivo del Cambio de medidor' class="mb-2" />
+                                                        <x-label for='medidor_cambio'
+                                                            value='Motivo del Cambio de medidor' class="mb-2" />
                                                         <input type="text"
                                                             class="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 "
-                                                            name="medidor_cambio" id="medidor_cambio" placeholder="Observaciones "
+                                                            name="medidor_cambio" id="medidor_cambio"
+                                                            placeholder="Observaciones "
                                                             value="{{ $reporte->medidor_cambio }}">
                                                         <x-input-error for="medidor_cambio" />
                                                     </div>
                                                 </div>
                                                 <div class=" mb-3">
-                                                    <x-label for='lectura' value='Numero de lectura' class="mb-2" />
+                                                    <x-label for='lectura' value='Numero de lectura'
+                                                        class="mb-2" />
                                                     <input type="number"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         name="lectura" id="lectura"
@@ -106,7 +156,8 @@
                                                     <x-input-error for="lectura" />
                                                 </div>
                                                 <div class=" mb-3">
-                                                    <x-label for='comercio' class="mb-2" value="Tipo de Comercio" />
+                                                    <x-label for='comercio' class="mb-2"
+                                                        value="Tipo de Comercio" />
                                                     <select id="comercio" name="tipo_comercio"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-3">
                                                         <option selected>Seleccione tipo de Comercio</option>
@@ -118,13 +169,16 @@
                                                     </select>
 
                                                     <x-input-error for="comercio" />
-                                                    <div id="div-comercio-nuevo" style="display: none;" class=" flex">
+                                                    <div id="div-comercio-nuevo" style="display: none;"
+                                                        class=" flex">
                                                         <input type="text" name="nuevo_comercio" id="nueva_opcion"
-                                                            class="w-1/2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" value="{{ $reporte->nuevo_comercio }}" >
+                                                            class="w-1/2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                                                            value="{{ $reporte->nuevo_comercio }}">
                                                     </div>
                                                 </div>
                                                 <div class=" mb-3">
-                                                    <x-label for='nombre_comercio' value='Nombre Del Comercio' class="mb-2" />
+                                                    <x-label for='nombre_comercio' value='Nombre Del Comercio'
+                                                        class="mb-2" />
                                                     <input type="text"
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         name="nombre_comercio" id="nombre_comercio"
@@ -140,7 +194,9 @@
                                                         class="select2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mb-3"
                                                         placeholder="Seleccione su Anomalia">
                                                         @foreach ($anomalias as $id => $nombre)
-                                                            <option value="{{ $id }}"{{ in_array($id, $anomaliasIds) ? 'selected' : '' }}>{{ $nombre }}</option>
+                                                            <option
+                                                                value="{{ $id }}"{{ in_array($id, $anomaliasIds) ? 'selected' : '' }}>
+                                                                {{ $nombre }}</option>
                                                         @endforeach
                                                     </select>
                                                     <x-input-error for="anomalia" />
@@ -164,9 +220,10 @@
                                                 <div class="mb-4">
                                                     <div class="mb-3">
                                                         <label for="comentarios"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comentarios </label>
+                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comentarios
+                                                        </label>
                                                         <textarea id="comentarios" name="comentarios" rows="4"
-                                                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">{{$reporte->comentarios}}</textarea>
+                                                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">{{ $reporte->comentarios }}</textarea>
                                                         <x-input-error for="comentarios" />
                                                     </div>
                                                 </div>
@@ -565,7 +622,7 @@
             // Llamar a la función para obtener la ubicación al cargar la página
             window.onload = obtenerUbicacion;
         </script>
-         <script>
+        <script>
             document.getElementById('medidor_noconcuerda').addEventListener('change', function() {
                 var medidorAnomalia = document.getElementById('medidor_anomalia');
                 if (this.checked) {

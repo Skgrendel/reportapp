@@ -66,6 +66,7 @@ class DataGisServices
                     'estadoCorte' => $attributes['DESCESTADOCORTE'],
                     'usuario' => $attributes['NOMBREUSUARIO'],
                     'apellido' => $attributes['APELLIDO'],
+                    'cliente' => $attributes['NOMBREUSUARIO'] . ' ' . $attributes['APELLIDO'],
                     'barrio' => $attributes['NOMBREBARRIO'],
                     'categoria' => $attributes['DESCATEGORIA'],
                     'descripcion' => $attributes['DESCRIPCION'],
@@ -208,6 +209,7 @@ class DataGisServices
                     'estadoCorte' => $attributes['DESCESTADOCORTE'],
                     'usuario' => $attributes['NOMBREUSUARIO'],
                     'apellido' => $attributes['APELLIDO'],
+                    'cliente' => $attributes['NOMBREUSUARIO'] . ' ' . $attributes['APELLIDO'],
                     'barrio' => $attributes['NOMBREBARRIO'],
                     'categoria' => $attributes['DESCATEGORIA'],
                     'descripcion' => $attributes['DESCRIPCION'],
@@ -217,7 +219,9 @@ class DataGisServices
                 'geometry' => [
                     'latitude' => $lat,
                     'longitude' => $lng
-                ]
+                ],
+                'link' => 'https://www.google.com/maps/place/' . $lat . ',' . $lng
+
             ];
         } catch (\Exception $e) {
             return [
