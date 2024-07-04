@@ -55,6 +55,11 @@ class Search extends Component
         // Decodificar la respuesta JSON
         $data = $urlConsulta->json();
 
+        if ($data['error']) {
+            return [
+                $this->errorMessage = $data['error']['message']
+            ];
+        }
 
         // Verificar si hay datos y si el array 'features' tiene al menos un elemento
         if (!$data || !isset($data['features'][0])) {
@@ -63,6 +68,8 @@ class Search extends Component
         } else {
             // Obtener los atributos de la primera característica
             $attributes = $data['features'][0]['attributes'];
+            $geometry = $data['features'][1]['geometry'];
+
             $this->direccion = $attributes['DIRECCION'];
             $this->estado_servicio = $attributes['ESTADOPRODUCTO'];
             $this->nombre_user = $attributes['NOMBREUSUARIO'];
