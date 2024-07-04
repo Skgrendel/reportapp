@@ -23,7 +23,7 @@ class FuntionController extends Controller
 
     public function BuscarContrato($id)
     {
-        $gis = $this->info->DataGis($id);
+        $gis = $this->info->DataGisubicacion($id);
         dd($gis);
 
         if ($gis) {
