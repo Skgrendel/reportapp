@@ -181,6 +181,10 @@
                                         <li>
                                             Estado de Conexion: {{ $gis['info']['estadoCorte'] ?? 'sin datos' }}
                                         </li>
+                                        <li>
+                                            latitud: {{ $gis['geometry']['latitude'] ?? 'sin datos' }}
+                                            longitud: {{ $gis['geometry']['longitude'] ?? 'sin datos' }}
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

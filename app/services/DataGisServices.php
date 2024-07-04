@@ -13,7 +13,6 @@ class DataGisServices
     public function DataGis(string $id)
     {
         try {
-
             $token = env('GIS_API_TOKEN');
             $data = reportes::find($id);
             $surtigas = direcciones::where('contrato', $data->contrato)->first();
@@ -57,6 +56,9 @@ class DataGisServices
             $attributes = $data['features'][0]['attributes'];
             $geometry = $data['features'][0]['geometry'];
 
+            // Convertir coordenadas de Web Mercator a latitud y longitud
+            list($lat, $lng) = $this->convertWebMercatorToLatLng($geometry['x'], $geometry['y']);
+
             return [
                 'info' => [
                     'direccion' => $attributes['DIRECCION'],
@@ -70,9 +72,10 @@ class DataGisServices
                     'contrato' => $attributes['PRODUCT_ID'],
                     'medidor' => $attributes['ELEMENTOMEDICION']
                 ],
-                'geometry_x' => $geometry['x'],
-                'geometry_y' => $geometry['y']
-
+                'geometry' => [
+                    'latitude' => $lat,
+                    'longitude' => $lng
+                ]
             ];
         } catch (\Exception $e) {
             return [
@@ -148,5 +151,12 @@ class DataGisServices
                 'error' => 'Se produjo un error al intentar acceder al servicio : ' // . $e->getMessage()
             ];
         }
+    }
+
+    private function convertWebMercatorToLatLng($x, $y)
+    {
+        $lng = ($x / 6378137) * (180 / pi());
+        $lat = (2 * atan(exp($y / 6378137)) - (pi() / 2)) * (180 / pi());
+        return [$lat, $lng];
     }
 }
