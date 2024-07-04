@@ -38,22 +38,18 @@
                             <div class="p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                                 role="alert">
                                 <div class="flex items-center">
-                                    <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-                                    </svg>
                                     <span class="sr-only">Info</span>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                                         <div class="flex flex-col">
-                                            <span>Datos Usuario: <br><span id="usuario"></span></span>
-                                            <span>Datos medidor: <br><span id="medidorgis"></span></span>
-                                            <span>Categoria: <br><span id="categoria"></span></span>
+                                            <p>Datos Usuario: <br><strong>
+                                                    <span id="usuario"></span></p></strong>
+                                            <p>Datos medidor: <br><strong><span id="medidorgis"></span></strong></p>
+                                            <p>Categoria: <br><strong><span id="categoria"></span></strong></p>
                                         </div>
                                         <div class="flex flex-col">
-                                            <span>Direccion: <br><span id="direccion"></span></span>
-                                            <span>Barrio: <br><span id="barrio"></span></span>
-                                            <span>Descripcion: <br><span id="descripcion"></span></span>
+                                            <p>Direccion: <br><strong><span id="direccion"></span></strong></p>
+                                            <p>Barrio: <br><strong><span id="barrio"></span></strong></p>
+                                            <p>Descripcion: <br><strong><span id="descripcion"></span></strong></p>
                                         </div>
                                     </div>
                                 </div>
@@ -373,7 +369,8 @@
                             $('#Contrato').attr('readonly', true);
                             $('#direccion').text(response.gis.direccion);
                             $('#medidorgis').text(response.gis.medidor);
-                            $('#descripcion').text(response.gis.descripcion);descripcion
+                            $('#descripcion').text(response.gis.descripcion);
+                            descripcion
                             $('#barrio').text(response.gis.barrio);
                             $('#categoria').text(response.gis.categoria);
                             $('#usuario').text(usuarioCompleto);
