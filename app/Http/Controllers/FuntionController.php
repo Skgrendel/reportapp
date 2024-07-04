@@ -24,10 +24,12 @@ class FuntionController extends Controller
     public function BuscarContrato($id)
     {
         $gis = $this->info->DataGis($id);
+        dd($gis);
 
         if ($gis) {
             $src =   $gis['geometry']['latitude']   . ',' .  $gis['geometry']['longitude'];
-            return response()->json(['src' => $src, 'contrato' =>$gis['info']]); // Si el contrato existe, devuelve sus datos como JSON
+
+            return response()->json(['src' => $src, 'contrato' => $gis['info']]); // Si el contrato existe, devuelve sus datos como JSON
         } else {
             return response()->json(['error' => 'Contrato no encontrado'], 404); // Si no existe, devuelve un error
         }
