@@ -118,7 +118,7 @@ class DataGisServices
                     'barrio' => $attributes['NOMBREBARRIO'],
                     'categoria' => $attributes['DESCATEGORIA'],
                     'descripcion' => $attributes['DESCRIPCION'],
-                    'contrato' => $attributes['PRODUCT_ID'],
+                    'contrato' => $attributes['SUBSCRIPTION_ID '],
                     'medidor' => $attributes['ELEMENTOMEDICION']
                 ],
             ];
