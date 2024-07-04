@@ -44,15 +44,17 @@
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                     </svg>
                                     <span class="sr-only">Info</span>
-                                    <div>
-                                        <ul>
-                                            <li>
-                                                Datos Usuario: <p id="usuario"></p>
-                                            </li>
-                                            <li>
-                                                Direccion: <p id="direccion"></p>
-                                            </li>
-                                        </ul>
+                                    <div class="grid grid-cols-2 grid-rows-3 gap-4">
+                                        <div class="col-span-2">
+                                            Datos Usuario: <span id="usuario"></span>
+                                            Datos medidor: <span id="medidor"></span>
+                                            Categoria: <span id="categoria"></span>
+                                        </div>
+                                        <div class="col-span-2">
+                                            Direccion: <span id="direccion"></span>
+                                            Barrio: <span id="barrio"></span>
+                                            Descripcion: <span id="descripcion"></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <a type="button" id="link" target="_blank"
@@ -126,8 +128,8 @@
                             <input type="text"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                 name="nombre_comercio" id="nombre_comercio"
-                                placeholder="Ingrese el Nombre Del Comercio "
-                                value="{{ old('nombre_comercio') }}" required>
+                                placeholder="Ingrese el Nombre Del Comercio " value="{{ old('nombre_comercio') }}"
+                                required>
                             <x-input-error for="nombre_comercio" />
                         </div>
                         <div class=" mb-3">
@@ -186,8 +188,8 @@
                                                 sube la foto en formato JPEG </p>
                                             <input id="foto1" name="foto1" type="file" class="hidden"
                                                 accept="image/*" capture="camera" />
-                                            </label>
-                                            <x-input-error for="foto1" />
+                                        </label>
+                                        <x-input-error for="foto1" />
                                     </div>
                                 </div>
                                 <!-- Elemento 2 -->
@@ -349,7 +351,6 @@
     </div>
 
     @section('js')
-
         <script>
             function BuscarContrato() {
                 var id = $('#Contrato').val();
@@ -366,6 +367,9 @@
                             $('#medidor').val(response.contrato.medidor);
                             $('#Contrato').attr('readonly', true);
                             $('#direccion').text(response.contrato.direccion);
+                            $('#descripcion').text(response.contrato.descripcion);descripcion
+                            $('#barrio').text(response.contrato.barrio);
+                            $('#categoria').text(response.contrato.categoria);
                             $('#usuario').text(usuarioCompleto);
                             $('#link').attr('href', 'https://www.google.com/maps/place/' + response.src);
                         },
@@ -533,6 +537,5 @@
             // Llama a la función para comprobar la conexión a internet
             checkInternetConnection();
         </script>
-
     @endsection
 </x-app-layout>
