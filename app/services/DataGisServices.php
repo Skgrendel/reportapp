@@ -127,7 +127,7 @@ class DataGisServices
                     'categoria' => $attributes['DESCATEGORIA'],
                     'descripcion' => $attributes['DESCRIPCION'],
                     'contrato' => $attributes['SUBSCRIPTION_ID'],
-                    'medidor' => $attributes['ELEMENTOMEDICION']
+                    'medidor' => $attributes['ELEMENTOMEDICION'],
                 ],
             ];
         } catch (\Exception $e) {
