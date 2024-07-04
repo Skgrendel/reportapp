@@ -7,19 +7,27 @@ use App\Exports\ReportVerificacion;
 use App\Models\direcciones;
 use App\Models\reportes;
 use App\Models\reportesverificacion;
+use App\Services\DataGisServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class FuntionController extends Controller
 {
+    private  $info;
+
+    public function __construct()
+    {
+        $this->info = new DataGisServices();
+    }
+
     public function BuscarContrato($id)
     {
-        $contrato = direcciones::where('contrato', $id)->first(); // Busca el contrato con ese id
+        $gis = $this->info->DataGis($id);
 
-        if ($contrato) {
-            $src = $contrato->latitud . ',' . $contrato->longitud;
-            return response()->json(['src' => $src, 'contrato' => $contrato]); // Si el contrato existe, devuelve sus datos como JSON
+        if ($gis) {
+            $src =   $gis['geometry']['latitude']   . ',' .  $gis['geometry']['longitude'];
+            return response()->json(['src' => $src, 'contrato' =>$gis['info']]); // Si el contrato existe, devuelve sus datos como JSON
         } else {
             return response()->json(['error' => 'Contrato no encontrado'], 404); // Si no existe, devuelve un error
         }
@@ -28,7 +36,7 @@ class FuntionController extends Controller
     public function exportReports()
     {
         $reporteIds = reportes::pluck('id')->toArray(); // Get all report IDs
-        $filename =now()->format('Y-m-d H:i:s') . '.xlsx';
+        $filename = now()->format('Y-m-d H:i:s') . '.xlsx';
         return Excel::download(new ReportExportall($reporteIds), $filename);
     }
 
@@ -36,9 +44,9 @@ class FuntionController extends Controller
     {
         $reporteIds = reportesverificacion::pluck('id')->toArray(); // Get all report IDs
         $filename = now()->format('Y-m-d H:i:s') . '.xlsx';
-        return Excel::download(new ReportVerificacion($reporteIds),$filename);
+        return Excel::download(new ReportVerificacion($reporteIds), $filename);
     }
-    
+
     public function anomaliasok()
     {
         return view('auditoria.confirmado');
