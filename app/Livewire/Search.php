@@ -66,7 +66,7 @@ class Search extends Component
         } else {
             // Obtener los atributos de la primera característica
             $attributes = $data['features'][0]['attributes'];
-            $geometry = $data['features'][1]['geometry'];
+            $geometry = $data['features'][0]['geometry'];
 
             $this->direccion = $attributes['DIRECCION'];
             $this->estado_servicio = $attributes['ESTADOPRODUCTO'];

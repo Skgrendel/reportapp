@@ -55,7 +55,7 @@ class DataGisServices
             }
 
             $attributes = $data['features'][0]['attributes'];
-            $geometry = $data['features'][1]['geometry'];
+            $geometry = $data['features'][0]['geometry'];
           // dd($geometry);
 
             return [
