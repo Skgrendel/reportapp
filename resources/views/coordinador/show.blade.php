@@ -158,9 +158,6 @@
                                         <li>
                                             Estado de Conexion: {{ $gis['info']['estadoCorte'] ?? 'sin datos' }}
                                         </li>
-                                        <li>
-                                            X: {{ $gis['geometry_x'] ?? 'sin datos' }}
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
