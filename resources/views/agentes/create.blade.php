@@ -354,9 +354,9 @@
                             // Aquí puedes manejar la respuesta del servidor
                             console.log(response);
                             $('#ubicacion').removeClass('hidden');
-                           // $('#medidor').val(response.contrato.medidor);
-                            //$('#Contrato').attr('readonly', true);
-                           // $('#direccion').text(response.contrato.direccion);
+                            $('#medidor').val(response.contrato.medidor);
+                            $('#Contrato').attr('readonly', true);
+                            $('#direccion').text(response.contrato.direccion);
                             $('#link').attr('href', 'https://www.google.com/maps/place/' + response.src);
                         },
                         error: function(error) {
