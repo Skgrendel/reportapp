@@ -365,7 +365,7 @@
                         type: 'GET',
                         success: function(response) {
 
-                            let usuarioCompleto = response.contrato.usuario + " " + response.contrato.apellido;
+                            let usuarioCompleto = response.gis.usuario + " " + response.gis.apellido;
                             // Aquí puedes manejar la respuesta del servidor
                             console.log(response);
                             $('#ubicacion').removeClass('hidden');
