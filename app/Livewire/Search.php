@@ -32,7 +32,7 @@ class Search extends Component
         $this->medidor = null;
         $this->contrato = null;
         $this->errorMessage = null;
-        
+
         // Token de acceso  a la aplicacion del gis
         $token = env('GIS_API_TOKEN');
 
@@ -71,7 +71,7 @@ class Search extends Component
             $this->categoria = $attributes['DESCATEGORIA'];
             $this->descripcion = $attributes['DESCRIPCION'];
             $this->medidor = $attributes['ELEMENTOMEDICION'];
-            $this->contrato = $attributes['PRODUCT_ID'];
+            $this->contrato = $attributes['SUBSCRIPTION_ID'];
         }
     }
 
