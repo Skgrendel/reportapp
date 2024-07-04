@@ -21,12 +21,12 @@ class FuntionController extends Controller
         $this->info = new DataGisServices();
     }
 
-    public function BuscarContrato(string $id)
+    public function BuscarContrato($id)
     {
         $gis = $this->info->DataGisubicacion($id);
 
         if ($gis) {
-            $medidor = direcciones::where('contrato', $id)->get();
+            $medidor = direcciones::where('contrato', $id)->first();
             $src =   $gis['geometry']['latitude']   . ',' .  $gis['geometry']['longitude'];
             return response()->json(['src' => $src, 'gis' => $gis['info'], 'medidor' => $medidor->medidor]); // Si el contrato existe, devuelve sus datos como JSON
         } else {
