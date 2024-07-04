@@ -44,20 +44,16 @@
                                             d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
                                     </svg>
                                     <span class="sr-only">Info</span>
-                                    <div class="grid grid-cols-2 gap-4 w-full">
-                                        <div class="col-span-2">
-                                            <div class="flex">
-                                                <div class="mr-4">Datos Usuario: <span id="usuario"></span></div>
-                                                <div class="mr-4">Datos medidor: <span id="medidor"></span></div>
-                                                <div>Categoria: <span id="categoria"></span></div>
-                                            </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                                        <div>
+                                            <div>Datos Usuario: <span id="usuario"></span></div>
+                                            <div>Datos medidor: <span id="medidor"></span></div>
+                                            <div>Categoria: <span id="categoria"></span></div>
                                         </div>
-                                        <div class="col-span-2">
-                                            <div class="flex">
-                                                <div class="mr-4">Direccion: <span id="direccion"></span></div>
-                                                <div class="mr-4">Barrio: <span id="barrio"></span></div>
-                                                <div>Descripcion: <span id="descripcion"></span></div>
-                                            </div>
+                                        <div>
+                                            <div>Direccion: <span id="direccion"></span></div>
+                                            <div>Barrio: <span id="barrio"></span></div>
+                                            <div>Descripcion: <span id="descripcion"></span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -67,6 +63,7 @@
                                 </a>
                             </div>
                         </div>
+
 
                         <div class=" mb-3">
                             <x-label for='medidor' value='Numero de medidor' class="mb-2" />
