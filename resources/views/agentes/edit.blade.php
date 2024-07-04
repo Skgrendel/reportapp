@@ -42,7 +42,7 @@
                                                     value="">
                                                 <input type="text" hidden name="personal_id"
                                                     value="{{ Auth::user()->personal->id }}">
-                                                <div class="mt-2 hidden " id="ubicacion">
+                                                <div class="mt-2 " id="ubicacion">
                                                     <div class="p-4 mb-4 text-sm text-black-800 border border-black-300 rounded-lg"
                                                         role="alert">
                                                         <div class="flex items-center">
