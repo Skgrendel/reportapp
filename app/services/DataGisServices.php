@@ -13,6 +13,7 @@ class DataGisServices
     public function DataGis(string $id)
     {
         try {
+
             $token = env('GIS_API_TOKEN');
             $data = reportes::find($id);
             $surtigas = direcciones::where('contrato', $data->contrato)->first();
@@ -55,7 +56,7 @@ class DataGisServices
 
             $attributes = $data['features'][0]['attributes'];
             $geometry = $data['features'][1]['geometry'];
-           // dd($geometry);
+          // dd($geometry);
 
             return [
                 'info' => [
