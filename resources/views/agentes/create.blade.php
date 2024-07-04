@@ -46,14 +46,14 @@
                                     <span class="sr-only">Info</span>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                                         <div class="flex flex-col">
-                                            <span>Datos Usuario: <span id="usuario"></span></span>
-                                            <span>Datos medidor: <span id="medidorgis"></span></span>
-                                            <span>Categoria: <span id="categoria"></span></span>
+                                            <span>Datos Usuario: <br><span id="usuario"></span></span>
+                                            <span>Datos medidor: <br><span id="medidorgis"></span></span>
+                                            <span>Categoria: <br><span id="categoria"></span></span>
                                         </div>
                                         <div class="flex flex-col">
-                                            <span>Direccion: <span id="direccion"></span></span>
-                                            <span>Barrio: <span id="barrio"></span></span>
-                                            <span>Descripcion: <span id="descripcion"></span></span>
+                                            <span>Direccion: <br><span id="direccion"></span></span>
+                                            <span>Barrio: <br><span id="barrio"></span></span>
+                                            <span>Descripcion: <br><span id="descripcion"></span></span>
                                         </div>
                                     </div>
                                 </div>
