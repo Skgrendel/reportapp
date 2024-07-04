@@ -34,7 +34,7 @@
                                 class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buscar</button>
 
                         </div>
-                        <div class="mt-2 hidden" id="ubicacion">
+                        <div class="mt-2 " id="ubicacion">
                             <div class="p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800"
                                 role="alert">
                                 <div class="flex items-center">
@@ -370,7 +370,6 @@
                             $('#direccion').text(response.gis.direccion);
                             $('#medidorgis').text(response.gis.medidor);
                             $('#descripcion').text(response.gis.descripcion);
-                            descripcion
                             $('#barrio').text(response.gis.barrio);
                             $('#categoria').text(response.gis.categoria);
                             $('#usuario').text(usuarioCompleto);

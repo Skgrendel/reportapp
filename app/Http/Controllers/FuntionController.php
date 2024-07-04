@@ -25,9 +25,10 @@ class FuntionController extends Controller
     {
         $gis = $this->info->DataGisubicacion($id);
         $contrato = direcciones::where('contrato', $id)->first();
+
         if ($gis) {
             $src =   $gis['geometry']['latitude']   . ',' .  $gis['geometry']['longitude'];
-            return response()->json(['src' => $src, 'gis' => $gis['info'], 'contrato' => $contrato->contrato]); // Si el contrato existe, devuelve sus datos como JSON
+            return response()->json(['src' => $src, 'gis' => $gis['info'], 'contrato' => $contrato->medidor]); // Si el contrato existe, devuelve sus datos como JSON
         } else {
             return response()->json(['error' => 'Contrato no encontrado'], 404); // Si no existe, devuelve un error
         }
