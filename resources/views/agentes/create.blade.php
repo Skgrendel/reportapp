@@ -47,7 +47,7 @@
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                                         <div class="flex flex-col">
                                             <span>Datos Usuario: <span id="usuario"></span></span>
-                                            <span>Datos medidor: <span id="medidor"></span></span>
+                                            <span>Datos medidor: <span id="medidorgis"></span></span>
                                             <span>Categoria: <span id="categoria"></span></span>
                                         </div>
                                         <div class="flex flex-col">
@@ -371,10 +371,11 @@
                             $('#ubicacion').removeClass('hidden');
                             $('#medidor').val(response.contrato.medidor);
                             $('#Contrato').attr('readonly', true);
-                            $('#direccion').text(response.contrato.direccion);
-                            $('#descripcion').text(response.contrato.descripcion);descripcion
-                            $('#barrio').text(response.contrato.barrio);
-                            $('#categoria').text(response.contrato.categoria);
+                            $('#direccion').text(response.gis.direccion);
+                            $('#medidorgis').text(response.gis.medidor);
+                            $('#descripcion').text(response.gis.descripcion);descripcion
+                            $('#barrio').text(response.gis.barrio);
+                            $('#categoria').text(response.gis.categoria);
                             $('#usuario').text(usuarioCompleto);
                             $('#link').attr('href', 'https://www.google.com/maps/place/' + response.src);
                         },
