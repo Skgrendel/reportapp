@@ -50,7 +50,7 @@
                                                 Datos Usuario: <p id="usuario"></p>
                                             </li>
                                             <li>
-                                                <p id="direccion"></p>
+                                                Direccion: <p id="direccion"></p>
                                             </li>
                                         </ul>
                                     </div>
