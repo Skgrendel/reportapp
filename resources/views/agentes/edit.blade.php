@@ -75,7 +75,7 @@
                                                         </div>
                                                         <div class="flex justify-end mt-4">
                                                             <a type="button" id="link" target="_blank"
-                                                                href="{{ $gis['link']['src'] ?? '' }}"
+                                                                href="https://www.google.com/maps/place/{{ $gis['geometry']['latitude'] . ',' . $gis['geometry']['longitude'] }}"
                                                                 class="text-white bg-green-800 hover:bg-green-500/90 focus:ring-4 focus:outline-none focus:ring-green-800/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
                                                                 Ver en Maps
                                                             </a>
