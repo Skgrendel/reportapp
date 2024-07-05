@@ -59,13 +59,19 @@
                                                                     <p>Categoria: <br><strong><span
                                                                                 id="categoria">{{ $gis['info']['categoria'] ?? 'No hay Datos' }}</span></strong>
                                                                     </p>
-                                                                </div>
-                                                                <div class="flex flex-col">
                                                                     <p>Direccion: <br><strong><span
                                                                                 id="direccion">{{ $gis['info']['direccion'] ?? 'No hay Datos' }}</span></strong>
                                                                     </p>
+                                                                </div>
+                                                                <div class="flex flex-col">
                                                                     <p>Barrio: <br><strong><span
                                                                                 id="barrio"></span>{{ $gis['info']['barrio'] ?? 'No hay Datos' }}</strong>
+                                                                    </p>
+                                                                    <p>Estado: <br><strong><span
+                                                                                id="estado"></span>{{ $gis['info']['estado'] ?? 'No hay Datos' }}</strong>
+                                                                    </p>
+                                                                    <p>Corte: <br><strong><span
+                                                                                id="estadoCorte"></span>{{ $gis['info']['estadoCorte'] ?? 'No hay Datos' }}</strong>
                                                                     </p>
                                                                     <p>Descripcion: <br><strong><span
                                                                                 id="descripcion">{{ $gis['info']['descripcion'] ?? 'No hay Datos' }}</span></strong>
