@@ -362,7 +362,7 @@
                             // console.log(response.medidor);
                             $('#ubicacion').removeClass('hidden');
                             $('#medidor').val(response.medidor);
-                            $('#medidor').attr('readonly',true);
+                            $('#medidor').attr('readonly',false);
                             $('#Contrato').attr('readonly', true);
                             $('#direccion').text(response.gis.direccion);
                             $('#medidorgis').text(response.gis.medidor);
