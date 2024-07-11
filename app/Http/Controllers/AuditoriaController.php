@@ -55,7 +55,7 @@ class AuditoriaController extends Controller
         $comercios = vs_comercios::pluck('nombre', 'id');
         $imposibilidad = vs_imposibilidad::pluck('nombre', 'id');
         $reporte = reportes::find($id);
-        $data = direcciones::where('contrtrato',$reporte->contrato)->first();
+        $data = direcciones::where('contrato',$reporte->contrato)->first();
         $reporte->load('auditorias');
         $contrato = $reporte->contrato;
         $validate = direcciones::where('contrato', $contrato)->first();
