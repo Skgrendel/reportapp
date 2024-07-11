@@ -20,7 +20,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <span class="media-title">Numero de Contrato:
-                                                    <strong>{{ $data->contrato }} @if ($validate === null)
+                                                    <strong>{{$data->contrato }} @if ($validate === null)
                                                             <span class="text-danger">No REGISTRA en base de datos</span>
                                                         @endif
                                                     </strong>
@@ -36,7 +36,7 @@
                             <div class="col-md-6">
                                 <ul>
                                     <li>
-                                        <span class="text-card text-sm"> Numero del Medidor: {{ $ $data->medidor }}</span>
+                                        <span class="text-card text-sm"> Numero del Medidor: {{$data->medidor }}</span>
                                     </li>
                                     <li>
                                         <span class="text-card text-sm"> Numero de Lectura: {{ $reporte->lectura }}</span>
