@@ -55,12 +55,13 @@ class AuditoriaController extends Controller
         $comercios = vs_comercios::pluck('nombre', 'id');
         $imposibilidad = vs_imposibilidad::pluck('nombre', 'id');
         $reporte = reportes::find($id);
+        $data = direcciones::where('contrtrato',$reporte->contrato)->first();
         $reporte->load('auditorias');
         $contrato = $reporte->contrato;
         $validate = direcciones::where('contrato', $contrato)->first();
         $anomaliasIds = json_decode($reporte->anomalia);
         $anomalias = vs_anomalias::whereIn('id', $anomaliasIds)->get();
-        return view('auditoria.show', compact('reporte', 'anomalias', 'validate', 'anomaliasver', 'comercios', 'imposibilidad', 'anomaliasIds','gis'));
+        return view('auditoria.show', compact('reporte', 'anomalias', 'validate', 'anomaliasver', 'comercios', 'imposibilidad', 'anomaliasIds','gis',' $data'));
     }
 
     /**
