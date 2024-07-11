@@ -61,7 +61,7 @@ class AuditoriaController extends Controller
         $validate = direcciones::where('contrato', $contrato)->first();
         $anomaliasIds = json_decode($reporte->anomalia);
         $anomalias = vs_anomalias::whereIn('id', $anomaliasIds)->get();
-        return view('auditoria.show', compact('reporte', 'anomalias', 'validate', 'anomaliasver', 'comercios', 'imposibilidad', 'anomaliasIds','gis',' $data'));
+        return view('auditoria.show', compact('reporte', 'anomalias', 'validate', 'anomaliasver', 'comercios', 'imposibilidad', 'anomaliasIds','gis','data'));
     }
 
     /**
