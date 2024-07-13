@@ -109,7 +109,7 @@
                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                                         name="medidor" id="medidor"
                                                         placeholder="Ingrese su Numero de Medidor"
-                                                        value="{{ $reporte->medidor }}">
+                                                        value="{{ $reporte->medidor }}" readonly>
                                                     <x-input-error for="medidor" />
                                                 </div>
                                                 <div class=" mb-3">
@@ -136,7 +136,7 @@
                                                             class="bg-red-50 border border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500 dark:bg-gray-700 focus:border-red-500 block w-full p-2.5 "
                                                             name="medidor_anomalia" id="medidor_anomalia"
                                                             placeholder="Ingrese su Numero de Medidor"
-                                                            value="{{ $reporte->medidor_anomalia }}" readonly>
+                                                            value="{{ $reporte->medidor_anomalia }}" >
                                                         <x-input-error for="medidor_anomalia" />
                                                     </div>
                                                     <div id="medidor_cambio" class="mt-2 hidden">
