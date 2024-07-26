@@ -41,8 +41,8 @@
                                     <span class="sr-only">Info</span>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
                                         <div class="flex flex-col">
-                                            <p>Datos Usuario: <br><strong>
-                                                    <span id="usuario"></span></p></strong>
+                                            <p>Origen de datos: <br><strong><span id="info"></span></p></strong>
+                                            <p>Datos Usuario: <br><strong><span id="usuario"></span></p></strong>
                                             <p>Datos medidor: <br><strong><span id="medidorgis"></span></strong></p>
                                             <p>Categoria: <br><strong><span id="categoria"></span></strong></p>
                                         </div>
@@ -362,6 +362,7 @@
                             $('#barrio').text(response.gis.barrio);
                             $('#categoria').text(response.gis.categoria);
                             $('#usuario').text(usuarioCompleto);
+                            $('#info').text(response.info);
                             $('#link').attr('href', 'https://www.google.com/maps/place/' + response.src);
                         },
                         error: function(error) {
