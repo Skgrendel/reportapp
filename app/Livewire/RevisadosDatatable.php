@@ -152,6 +152,18 @@ class RevisadosDatatable extends DataTableComponent
                         $builder->where('ciclos.ciclo', '1012');
                     }
                 }),
+
+            SelectFilter::make('Tipo de Comercio')
+                ->options([
+                    '' => 'All',
+                    '1' => 'Casa Con Negocio',
+                ])
+                ->filter(function (Builder $builder, $value) {
+                    if ($value === '1') {
+                        $builder->where('tipo_comercio', '78');
+                    }
+                }),
+
             SelectFilter::make('Confirmados')
                 ->options([
                     '' => 'All',
