@@ -157,10 +157,13 @@ class RevisadosDatatable extends DataTableComponent
                 ->options([
                     '' => 'All',
                     '1' => 'Casa Con Negocio',
+                    '2' => 'Venta de Fritos',
                 ])
                 ->filter(function (Builder $builder, $value) {
                     if ($value === '1') {
                         $builder->where('tipo_comercio', '78');
+                    }elseif($value==='2'){
+                        $builder->where('tipo_comercio','25');
                     }
                 }),
 
